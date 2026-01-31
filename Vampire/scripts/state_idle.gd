@@ -2,6 +2,7 @@ class_name State_Idle extends State
 
 @onready var walk : State = $"../walk"
 @onready var attack: Node = $"../attack"
+@onready var dash: Node = $"../dash"
 
 
 func Enter() -> void: 
@@ -21,6 +22,8 @@ func Physics( _delta : float) -> State:
 	return null
 	
 func HandleInput( _event: InputEvent ) -> State: 
+	if _event.is_action_pressed("dash"):
+		return dash
 	if _event.is_action_pressed("attack"):
 		return attack
 	return null
