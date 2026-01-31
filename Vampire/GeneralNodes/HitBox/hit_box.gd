@@ -11,6 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 func TakeDamage(damage: int) -> void:
-print("TakeDamage: ", damage)
-Damaged.emit(damage)
-pass
+	print("TakeDamage: ", damage)
+	Damaged.emit(damage)
