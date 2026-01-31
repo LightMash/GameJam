@@ -11,8 +11,17 @@ config_version=5
 [application]
 
 config/name="Vampire"
+run/main_scene="uid://catnsiiwl7buy"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="Vampire"
+
+[global_group]
+
+player=""
 
 [input]
 
