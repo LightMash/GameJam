@@ -1,7 +1,7 @@
 class_name State_Idle extends State
 
 @onready var walk : State = $"../walk"
-@onready var attack: Node = $"../attack"
+@onready var attack: State = $"../attack"
 @onready var dash: State = $"../dash"
 
 func Enter() -> void:
