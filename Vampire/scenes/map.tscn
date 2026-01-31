@@ -19,5 +19,7 @@ tile_set = ExtResource("1_4xfga")
 tile_map_data = PackedByteArray("AAADAAMAAQADAAoAAAADAAgAAQADAAoAAAADAA0AAQADAAoAAAAMAAgAAQAGAAsAAAAVAAMAAQAGAAsAAAAVAA4AAQAGAAsAAAAFAAYAAQAEABAAAAAHAA4AAQAEABAAAAARAA8AAQAEABAAAAABAAoAAQAHABAAAAAHAAsAAQAEABMAAAABAAYAAQAEABMAAAAKAAsAAQAIABMAAAAHAAgAAQAIABMAAAARAAwAAQAHAAYAAAA=")
 tile_set = ExtResource("1_4xfga")
 
+[node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayer"]
+
 [node name="Player" parent="." instance=ExtResource("2_paxxb")]
 position = Vector2(149, 72)
