@@ -226,6 +226,9 @@ script = ExtResource("5_qlg0r")
 
 [node name="attack" type="Node" parent="StateMachine"]
 script = ExtResource("6_ur7pv")
+decelerate_speed = 1.0
+
+[node name="dash" type="Node" parent="StateMachine"]
 
 [node name="Interactions" type="Node2D" parent="."]
 script = ExtResource("9_y4r1p")
