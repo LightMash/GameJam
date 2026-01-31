@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwrahx6iso5rg"]
+[gd_scene load_steps=3 format=3 uid="uid://dwrahx6iso5rg"]
 
 [ext_resource type="Theme" uid="uid://dtis1gio6djys" path="res://ui/Ressources/Themes & Stylebox/game_ui_theme.tres" id="1_6uj7b"]
+[ext_resource type="Script" uid="uid://btul5nk2lmwbf" path="res://ui/night_panel.gd" id="2_a84dc"]
 
 [node name="NightPanel" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_6uj7b")
+script = ExtResource("2_a84dc")
 
 [node name="NightPanel" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -20,7 +22,7 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="Label" type="Label" parent="NightPanel/MarginContainer"]
+[node name="DayLabel" type="Label" parent="NightPanel/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"NightLabel"
@@ -40,8 +42,8 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="Label" type="Label" parent="TimePanel/MarginContainer"]
+[node name="TimeLabel" type="Label" parent="TimePanel/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"NightLabel"
-text = "12:00"
+text = "00:00"
