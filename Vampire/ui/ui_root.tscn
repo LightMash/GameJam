@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b66wycxo6pbd3"]
+[gd_scene load_steps=9 format=3 uid="uid://b66wycxo6pbd3"]
 
 [ext_resource type="Script" uid="uid://drbd1g1fds2r" path="res://ui/ui_root.gd" id="1_otu6g"]
 [ext_resource type="StyleBox" uid="uid://de61c7bh14sgf" path="res://ui/Ressources/Themes & Stylebox/hover_button.tres" id="2_f6o6b"]
@@ -29,6 +29,8 @@ cache/0/30/0/scale = 1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6o6b"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6qk7i"]
+
 [sub_resource type="Theme" id="Theme_nowai"]
 Button/colors/font_color = Color(0.8746512, 0.8768879, 0.8572877, 1)
 Button/font_sizes/font_size = 30
@@ -36,6 +38,7 @@ Button/fonts/font = SubResource("FontFile_8sumc")
 Button/styles/focus = SubResource("StyleBoxEmpty_f6o6b")
 Button/styles/hover = ExtResource("2_f6o6b")
 Button/styles/normal = ExtResource("3_6qk7i")
+Button/styles/pressed = SubResource("StyleBoxEmpty_6qk7i")
 
 [node name="UIRoot" type="CanvasLayer"]
 script = ExtResource("1_otu6g")
