@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://dori3vwwl360p" path="res://Tilesets/game_tile_set.tres" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://cq5tj1snjrwne" path="res://scenes/player.tscn" id="2_paxxb"]
-[ext_resource type="PackedScene" uid="uid://c470qsn6irakn" path="res://scenes/monster.tscn" id="3_gldc4"]
+[ext_resource type="PackedScene" uid="uid://2cdbny4ycnq8" path="res://scenes/monster.tscn" id="3_gldc4"]
 
 [node name="TestSceneMap" type="Node2D"]
 
