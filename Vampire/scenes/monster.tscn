@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://2cdbny4ycnq8"]
+
+[ext_resource type="Script" path="res://scripts/monster.gd" id="1_uwnm8"]
+
+[node name="Monster" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_uwnm8")
+movement_speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
