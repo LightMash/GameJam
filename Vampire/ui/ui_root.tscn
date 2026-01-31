@@ -1,42 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://b66wycxo6pbd3"]
+[gd_scene load_steps=9 format=3 uid="uid://b66wycxo6pbd3"]
 
 [ext_resource type="Script" uid="uid://drbd1g1fds2r" path="res://ui/ui_root.gd" id="1_otu6g"]
+[ext_resource type="FontFile" uid="uid://drx0plq10ud70" path="res://ui/Ressources/font/PublicPixel-rv0pA.ttf" id="2_6qk7i"]
 [ext_resource type="StyleBox" uid="uid://de61c7bh14sgf" path="res://ui/Ressources/Themes & Stylebox/hover_button.tres" id="2_f6o6b"]
 [ext_resource type="StyleBox" uid="uid://cwu67ajxb4kob" path="res://ui/Ressources/Themes & Stylebox/normal_button.tres" id="3_6qk7i"]
-[ext_resource type="Texture2D" uid="uid://bf7td0j51cogu" path="res://assets/scifi_start_menu_test.jpg" id="4_s6kls"]
-
-[sub_resource type="FontFile" id="FontFile_8sumc"]
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/15/0/ascent = 0.0
-cache/0/15/0/descent = 0.0
-cache/0/15/0/underline_position = 0.0
-cache/0/15/0/underline_thickness = 0.0
-cache/0/15/0/scale = 1.0
-cache/0/20/0/ascent = 0.0
-cache/0/20/0/descent = 0.0
-cache/0/20/0/underline_position = 0.0
-cache/0/20/0/underline_thickness = 0.0
-cache/0/20/0/scale = 1.0
-cache/0/30/0/ascent = 0.0
-cache/0/30/0/descent = 0.0
-cache/0/30/0/underline_position = 0.0
-cache/0/30/0/underline_thickness = 0.0
-cache/0/30/0/scale = 1.0
+[ext_resource type="Texture2D" uid="uid://b0jg0o86gnara" path="res://assets/StartMenuBackground.png" id="4_f6o6b"]
+[ext_resource type="FontVariation" uid="uid://b7m70ts8yfcru" path="res://ui/Ressources/font/ui_font.tres" id="5_s6kls"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6o6b"]
 
 [sub_resource type="Theme" id="Theme_nowai"]
-Button/colors/font_color = Color(0.8746512, 0.8768879, 0.8572877, 1)
-Button/font_sizes/font_size = 30
-Button/fonts/font = SubResource("FontFile_8sumc")
+Button/colors/font_color = Color(0.95686275, 0.4509804, 0.49411765, 1)
+Button/colors/font_outline_color = Color(0.21278551, 0.4343182, 0.60922354, 1)
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("2_6qk7i")
 Button/styles/focus = SubResource("StyleBoxEmpty_f6o6b")
 Button/styles/hover = ExtResource("2_f6o6b")
 Button/styles/normal = ExtResource("3_6qk7i")
 Button/styles/pressed = ExtResource("2_f6o6b")
+Label/colors/font_color = Color(0.27058825, 0.1254902, 0.2, 1)
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("5_s6kls")
 
 [node name="UIRoot" type="CanvasLayer"]
 script = ExtResource("1_otu6g")
@@ -60,7 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_s6kls")
+texture = ExtResource("4_f6o6b")
 
 [node name="MenuPanel" type="NinePatchRect" parent="StartMenu/StartMenuBackground"]
 layout_mode = 1
@@ -86,35 +70,126 @@ axis_stretch_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="StartMenu/StartMenuBackground/MenuPanel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.799
-anchor_right = 0.5
-anchor_bottom = 0.799
-offset_left = -123.875
-offset_top = -124.04799
-offset_right = 134.0625
-offset_bottom = 124.36804
+anchor_left = 0.57900006
+anchor_top = 0.67800003
+anchor_right = 0.57900006
+anchor_bottom = 0.67800003
+offset_left = -297.07928
+offset_top = -281.392
+offset_right = 268.92072
+offset_bottom = 67.60803
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Start" type="Button" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer"]
+[node name="StartButtonContainer" type="NinePatchRect" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer"]
 layout_mode = 2
+
+[node name="StartLabel" type="Label" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/StartButtonContainer"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 27.0
+offset_right = 406.0
+offset_bottom = 110.0
 text = "Start Game"
 
-[node name="Settings" type="Button" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer"]
+[node name="Start" type="Button" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/StartButtonContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = 17.5
+offset_right = 204.0
+offset_bottom = 64.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Game"
+
+[node name="SettingsButtonContainer" type="NinePatchRect" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer"]
 layout_mode = 2
+
+[node name="SettingsLabel" type="Label" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/SettingsButtonContainer"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 88.0
+offset_right = 446.0
+offset_bottom = 128.0
 text = "Settings"
 
-[node name="Credits" type="Button" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer"]
+[node name="Settings" type="Button" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/SettingsButtonContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = 82.0
+offset_right = 164.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
+
+[node name="CreditsButtonContainer" type="NinePatchRect" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer"]
 layout_mode = 2
+
+[node name="CreditsLabel" type="Label" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/CreditsButtonContainer"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 146.0
+offset_right = 429.0
+offset_bottom = 186.0
 text = "Credits"
 
-[node name="Quit" type="Button" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer"]
+[node name="Credits" type="Button" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/CreditsButtonContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = 138.0
+offset_right = 144.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Credits"
+
+[node name="QuitButtonContainer" type="NinePatchRect" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer"]
 layout_mode = 2
+
+[node name="Quit2" type="Label" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/QuitButtonContainer"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 198.0
+offset_right = 387.0
+offset_bottom = 249.0
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Button" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/QuitButtonContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 194.0
+offset_right = 93.0
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Quit"
 
 [node name="Title" type="TextEdit" parent="StartMenu/StartMenuBackground"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -129,7 +204,7 @@ grow_horizontal = 2
 text = "5 nights of blood
 "
 
-[connection signal="pressed" from="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/StartButtonContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/SettingsButtonContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/CreditsButtonContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/QuitButtonContainer/Quit" to="." method="_on_quit_pressed"]
