@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://2cdbny4ycnq8"]
+[gd_scene load_steps=4 format=4 uid="uid://2cdbny4ycnq8"]
 
 [ext_resource type="Script" path="res://scripts/monster.gd" id="1_uwnm8"]
+[ext_resource type="Texture2D" uid="uid://csfnr5eycv7g4" path="res://assets/PlayerSprite02.png" id="2_1cbnp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1cbnp"]
+radius = 8.0
 
 [node name="Monster" type="CharacterBody2D"]
 motion_mode = 1
