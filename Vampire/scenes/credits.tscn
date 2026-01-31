@@ -1,3 +1,82 @@
-[gd_scene format=3 uid="uid://q76rnqnclcjv"]
+[gd_scene load_steps=7 format=3 uid="uid://q76rnqnclcjv"]
+
+[ext_resource type="Texture2D" uid="uid://bf7td0j51cogu" path="res://assets/scifi_start_menu_test.jpg" id="1_0ctdu"]
+[ext_resource type="Script" uid="uid://wi2y8vdhxx25" path="res://scripts/credits.gd" id="1_2fbfq"]
+[ext_resource type="StyleBox" uid="uid://de61c7bh14sgf" path="res://ui/Ressources/Themes & Stylebox/hover_button.tres" id="2_2fbfq"]
+[ext_resource type="StyleBox" uid="uid://cwu67ajxb4kob" path="res://ui/Ressources/Themes & Stylebox/normal_button.tres" id="3_8gwij"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mah5v"]
+
+[sub_resource type="Theme" id="Theme_ooihk"]
+Button/font_sizes/font_size = 30
+Button/styles/focus = SubResource("StyleBoxEmpty_mah5v")
+Button/styles/hover = ExtResource("2_2fbfq")
+Button/styles/normal = ExtResource("3_8gwij")
+Button/styles/pressed = ExtResource("2_2fbfq")
 
 [node name="Credits" type="CanvasLayer"]
+script = ExtResource("1_2fbfq")
+
+[node name="Credits" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreditsBackground" type="NinePatchRect" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0ctdu")
+
+[node name="CreditsContent" type="NinePatchRect" parent="Credits/CreditsBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.44500002
+anchor_right = 0.5
+anchor_bottom = 0.44500002
+offset_left = -304.0
+offset_top = -197.36002
+offset_right = 318.0
+offset_bottom = 197.63998
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreditsContentText" type="Label" parent="Credits/CreditsBackground/CreditsContent"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.062000003
+anchor_right = 0.5
+anchor_bottom = 0.062000003
+offset_left = -85.0
+offset_top = -24.490002
+offset_right = 85.0
+offset_bottom = 24.509998
+grow_horizontal = 2
+text = "yap yap designed by...
+"
+
+[node name="Back" type="Button" parent="Credits/CreditsBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.83400005
+anchor_right = 0.5
+anchor_bottom = 0.83400005
+offset_left = -69.0
+offset_top = -15.100037
+offset_right = 72.25
+offset_bottom = 15.899963
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ooihk")
+text = "Back"
+
+[connection signal="pressed" from="Credits/CreditsBackground/Back" to="." method="_on_back_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ceig5wtqe5ns4"]
+[gd_scene load_steps=10 format=3 uid="uid://ceig5wtqe5ns4"]
 
 [ext_resource type="Texture2D" uid="uid://bf7td0j51cogu" path="res://assets/scifi_start_menu_test.jpg" id="1_5p8wc"]
 [ext_resource type="StyleBox" uid="uid://de61c7bh14sgf" path="res://ui/Ressources/Themes & Stylebox/hover_button.tres" id="1_6wm04"]
@@ -16,6 +16,14 @@ Button/styles/focus = SubResource("StyleBoxEmpty_f4mfi")
 Button/styles/hover = ExtResource("1_6wm04")
 Button/styles/normal = ExtResource("2_f4mfi")
 Button/styles/pressed = SubResource("StyleBoxEmpty_es4n0")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gis3k"]
+
+[sub_resource type="Theme" id="Theme_83j8s"]
+Button/styles/focus = SubResource("StyleBoxEmpty_gis3k")
+Button/styles/hover = ExtResource("1_6wm04")
+Button/styles/normal = ExtResource("2_f4mfi")
+Button/styles/pressed = ExtResource("1_6wm04")
 
 [node name="SettingsUIRoot" type="CanvasLayer"]
 script = ExtResource("1_f4mfi")
@@ -104,6 +112,7 @@ offset_right = 72.25
 offset_bottom = 15.565979
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_83j8s")
 text = "Back"
 
 [connection signal="pressed" from="Settings/SettingsBackground/Back" to="." method="_on_back_pressed"]
