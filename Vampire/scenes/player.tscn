@@ -189,7 +189,7 @@ _data = {
 &"walk_up": SubResource("Animation_3v2ag")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(0, -20)
 script = ExtResource("1_qhqgy")
 
