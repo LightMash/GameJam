@@ -11,6 +11,9 @@
 [ext_resource type="Script" uid="uid://seweeluv6857" path="res://scripts/state_attack.gd" id="6_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://2oxddiofudlc" path="res://GeneralNodes/HitBox/hit_box.tscn" id="7_smehm"]
 [ext_resource type="Script" path="res://scripts/playerInteractionHost.gd" id="9_y4r1p"]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
