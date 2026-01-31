@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://co12wxaly7jik"]
+
+[ext_resource type="Script" uid="uid://cuwo8oe1gm201" path="res://scripts/gameover.gd" id="1_h8i2o"]
+[ext_resource type="Texture2D" uid="uid://bf7td0j51cogu" path="res://assets/scifi_start_menu_test.jpg" id="2_mt7yr"]
+[ext_resource type="StyleBox" uid="uid://de61c7bh14sgf" path="res://ui/Ressources/Themes & Stylebox/hover_button.tres" id="3_qwp2v"]
+[ext_resource type="StyleBox" uid="uid://cwu67ajxb4kob" path="res://ui/Ressources/Themes & Stylebox/normal_button.tres" id="4_3gj0k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ke020"]
+
+[sub_resource type="Theme" id="Theme_r8puk"]
+Button/styles/focus = SubResource("StyleBoxEmpty_ke020")
+Button/styles/hover = ExtResource("3_qwp2v")
+Button/styles/normal = ExtResource("4_3gj0k")
+Button/styles/pressed = ExtResource("3_qwp2v")
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_h8i2o")
+
+[node name="GameOver" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverBackground" type="NinePatchRect" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mt7yr")
+
+[node name="GameOverTitle" type="NinePatchRect" parent="GameOver/GameOverBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameOver/GameOverBackground/GameOverTitle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -11.5
+offset_right = 43.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+
+[node name="returnToTitleScreen" type="Button" parent="GameOver/GameOverBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.76100004
+anchor_right = 0.5
+anchor_bottom = 0.76100004
+offset_left = -80.0
+offset_top = -22.128021
+offset_right = 85.0
+offset_bottom = 21.871979
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_r8puk")
+text = "Retun to title screen"
+
+[connection signal="pressed" from="GameOver/GameOverBackground/returnToTitleScreen" to="." method="_on_return_to_title_screen_pressed"]

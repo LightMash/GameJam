@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Vampire"
-run/main_scene="uid://catnsiiwl7buy"
+run/main_scene="uid://dnokxyqpgm1t0"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/mode=3
 
 [dotnet]
 

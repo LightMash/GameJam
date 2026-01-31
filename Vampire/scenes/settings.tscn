@@ -1,0 +1,118 @@
+[gd_scene load_steps=10 format=3 uid="uid://ceig5wtqe5ns4"]
+
+[ext_resource type="Texture2D" uid="uid://bf7td0j51cogu" path="res://assets/scifi_start_menu_test.jpg" id="1_5p8wc"]
+[ext_resource type="StyleBox" uid="uid://de61c7bh14sgf" path="res://ui/Ressources/Themes & Stylebox/hover_button.tres" id="1_6wm04"]
+[ext_resource type="Script" uid="uid://ijgoji5o2r7i" path="res://scripts/settings.gd" id="1_f4mfi"]
+[ext_resource type="StyleBox" uid="uid://cwu67ajxb4kob" path="res://ui/Ressources/Themes & Stylebox/normal_button.tres" id="2_f4mfi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4mfi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_es4n0"]
+
+[sub_resource type="Theme" id="Theme_gis3k"]
+Button/font_sizes/font_size = 30
+Button/fonts/font = null
+Button/styles/focus = SubResource("StyleBoxEmpty_f4mfi")
+Button/styles/hover = ExtResource("1_6wm04")
+Button/styles/normal = ExtResource("2_f4mfi")
+Button/styles/pressed = SubResource("StyleBoxEmpty_es4n0")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gis3k"]
+
+[sub_resource type="Theme" id="Theme_83j8s"]
+Button/styles/focus = SubResource("StyleBoxEmpty_gis3k")
+Button/styles/hover = ExtResource("1_6wm04")
+Button/styles/normal = ExtResource("2_f4mfi")
+Button/styles/pressed = ExtResource("1_6wm04")
+
+[node name="SettingsUIRoot" type="CanvasLayer"]
+script = ExtResource("1_f4mfi")
+
+[node name="Settings" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme = SubResource("Theme_gis3k")
+
+[node name="SettingsBackground" type="NinePatchRect" parent="Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5p8wc")
+
+[node name="SettingsPanel" type="NinePatchRect" parent="Settings/SettingsBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50100005
+anchor_top = 0.41900003
+anchor_right = 0.50100005
+anchor_bottom = 0.41900003
+offset_left = -221.15253
+offset_top = -143.26901
+offset_right = 220.84747
+offset_bottom = 142.73099
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/SettingsBackground/SettingsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -57.5
+offset_right = 182.0
+offset_bottom = 57.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MusicVBoxContainer" type="BoxContainer" parent="Settings/SettingsBackground/SettingsPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="Settings/SettingsBackground/SettingsPanel/VBoxContainer/MusicVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Settings/SettingsBackground/SettingsPanel/VBoxContainer/MusicVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SFXVBoxContainer" type="BoxContainer" parent="Settings/SettingsBackground/SettingsPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="SFX" type="Label" parent="Settings/SettingsBackground/SettingsPanel/VBoxContainer/SFXVBoxContainer"]
+layout_mode = 2
+text = "SFX    "
+
+[node name="SFXSLider" type="HSlider" parent="Settings/SettingsBackground/SettingsPanel/VBoxContainer/SFXVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Back" type="Button" parent="Settings/SettingsBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.83400005
+anchor_right = 0.5
+anchor_bottom = 0.83400005
+offset_left = -69.0
+offset_top = -15.434021
+offset_right = 72.25
+offset_bottom = 15.565979
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_83j8s")
+text = "Back"
+
+[connection signal="pressed" from="Settings/SettingsBackground/Back" to="." method="_on_back_pressed"]

@@ -1,0 +1,135 @@
+[gd_scene load_steps=8 format=3 uid="uid://b66wycxo6pbd3"]
+
+[ext_resource type="Script" uid="uid://drbd1g1fds2r" path="res://ui/ui_root.gd" id="1_otu6g"]
+[ext_resource type="StyleBox" uid="uid://de61c7bh14sgf" path="res://ui/Ressources/Themes & Stylebox/hover_button.tres" id="2_f6o6b"]
+[ext_resource type="StyleBox" uid="uid://cwu67ajxb4kob" path="res://ui/Ressources/Themes & Stylebox/normal_button.tres" id="3_6qk7i"]
+[ext_resource type="Texture2D" uid="uid://bf7td0j51cogu" path="res://assets/scifi_start_menu_test.jpg" id="4_s6kls"]
+
+[sub_resource type="FontFile" id="FontFile_8sumc"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6o6b"]
+
+[sub_resource type="Theme" id="Theme_nowai"]
+Button/colors/font_color = Color(0.8746512, 0.8768879, 0.8572877, 1)
+Button/font_sizes/font_size = 30
+Button/fonts/font = SubResource("FontFile_8sumc")
+Button/styles/focus = SubResource("StyleBoxEmpty_f6o6b")
+Button/styles/hover = ExtResource("2_f6o6b")
+Button/styles/normal = ExtResource("3_6qk7i")
+Button/styles/pressed = ExtResource("2_f6o6b")
+
+[node name="UIRoot" type="CanvasLayer"]
+script = ExtResource("1_otu6g")
+
+[node name="StartMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_nowai")
+metadata/_edit_use_anchors_ = true
+
+[node name="StartMenuBackground" type="NinePatchRect" parent="StartMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_s6kls")
+
+[node name="MenuPanel" type="NinePatchRect" parent="StartMenu/StartMenuBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.573
+anchor_right = 0.5
+anchor_bottom = 0.573
+offset_left = -126.0
+offset_top = -167.72
+offset_right = 129.75
+offset_bottom = 168.28
+grow_horizontal = 2
+grow_vertical = 2
+region_rect = Rect2(40, 32, 280, 296)
+patch_margin_left = 64
+patch_margin_top = 72
+patch_margin_right = 72
+patch_margin_bottom = 80
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenu/StartMenuBackground/MenuPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.799
+anchor_right = 0.5
+anchor_bottom = 0.799
+offset_left = -123.875
+offset_top = -124.04799
+offset_right = 134.0625
+offset_bottom = 124.36804
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Start" type="Button" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Credits" type="Button" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" type="Button" parent="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Title" type="TextEdit" parent="StartMenu/StartMenuBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.27800003
+anchor_right = 0.5
+anchor_bottom = 0.27800003
+offset_left = -255.0
+offset_top = -59.920013
+offset_right = 260.0
+offset_bottom = 60.079987
+grow_horizontal = 2
+text = "5 nights of blood
+"
+
+[connection signal="pressed" from="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="StartMenu/StartMenuBackground/MenuPanel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
