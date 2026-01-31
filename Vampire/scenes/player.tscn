@@ -5,6 +5,13 @@
 [ext_resource type="Script" uid="uid://cqf4kuet7cer5" path="res://scripts/player_state_machine.gd" id="3_qlg0r"]
 [ext_resource type="Script" uid="uid://dpvdv8yhlma7w" path="res://scripts/state_idle.gd" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://bakim3fl7ercf" path="res://scripts/state_walk.gd" id="5_qlg0r"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="PackedScene" uid="uid://dulrkokmctpk" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="6_fjrip"]
+[ext_resource type="Script" uid="uid://seweeluv6857" path="res://scripts/state_attack.gd" id="6_ur7pv"]
+[ext_resource type="PackedScene" uid="uid://2oxddiofudlc" path="res://GeneralNodes/HitBox/hit_box.tscn" id="7_smehm"]
+[ext_resource type="Script" path="res://scripts/playerInteractionHost.gd" id="9_y4r1p"]
+>>>>>>> Stashed changes
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
 
