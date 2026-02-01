@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dwrahx6iso5rg" path="res://ui/night_panel.tscn" id="1_g4tl3"]
 [ext_resource type="Theme" uid="uid://dtis1gio6djys" path="res://ui/Ressources/Themes & Stylebox/game_ui_theme.tres" id="1_sp4y4"]
 [ext_resource type="Texture2D" uid="uid://dum0nb2skgovr" path="res://ui/aaaererggh.png" id="3_vb34k"]
-[ext_resource type="Script" uid="uid://xdnjalabn0h3" path="res://ui/dice_roll.gd" id="4_bethk"]
+[ext_resource type="Script" path="res://ui/dice_roll.gd" id="4_bethk"]
 
 [sub_resource type="Animation" id="Animation_n4oob"]
 length = 0.001
