@@ -4,6 +4,8 @@ var states : Array[ State]
 var prev_state : State
 var current_state: State
 
+
+
 func _ready():
 	process_mode = Node.PROCESS_MODE_DISABLED
 	pass

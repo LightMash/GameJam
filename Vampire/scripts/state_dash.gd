@@ -7,6 +7,8 @@ class_name State_Dash extends State
 @onready var idle: State_Idle = $"../idle"
 @onready var walk: State = $"../walk"
 @onready var hurt_box: Area2D = $"../../Interactions/HurtBox" # adjust if your path differs
+@onready var sprite_2d: Sprite2D = $"../../Sprite2D"
+
 
 var dash_dir: Vector2 = Vector2.ZERO
 var time_left: float = 0.0
@@ -16,6 +18,11 @@ func Enter() -> void:
 	if not can_dash:
 		return
 
+	player.set_collision_layer_value(1,false)
+	player.set_collision_layer_value(3,true)
+	player.set_collision_mask_value(1,false)
+	player.set_collision_mask_value(3,true)
+	sprite_2d.z_index = 2
 	can_dash = false
 	time_left = dash_duration
 
@@ -39,7 +46,12 @@ func Exit() -> void:
 
 	if is_instance_valid(hurt_box):
 		hurt_box.monitoring = true
-
+	
+	player.set_collision_layer_value(3,false)
+	player.set_collision_layer_value(1,true)
+	player.set_collision_mask_value(3,false)
+	player.set_collision_mask_value(1,true)
+	sprite_2d.z_index = 0
 func Process(delta: float) -> State:
 	time_left -= delta
 
