@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cq5tj1snjrwne"]
+[gd_scene load_steps=31 format=3 uid="uid://cq5tj1snjrwne"]
 
 [ext_resource type="Script" uid="uid://d24bq5kd8w1dj" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://c0ylhbv5fsif4" path="res://assets/F0.png" id="2_qlg0r"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dm87e08dht7ox" path="res://scripts/state_dash.gd" id="7_y4r1p"]
 [ext_resource type="Script" uid="uid://c43bfydqelsvx" path="res://scenes/emote.gd" id="8_d2wvv"]
 [ext_resource type="Script" uid="uid://mqqakq8uyuqn" path="res://scripts/playerInteractionHost.gd" id="9_y4r1p"]
+[ext_resource type="Script" uid="uid://j80du1dkomvn" path="res://scripts/health.gd" id="12_3v2ag"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
 radius = 7.071068
@@ -322,3 +323,6 @@ debug_color = Color(0.99215686, 0, 0, 0.41960785)
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_y4r1p")
 debug_color = Color(0, 0.63427913, 0.4345184, 0.41960785)
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("12_3v2ag")
