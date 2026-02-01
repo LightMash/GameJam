@@ -4,10 +4,12 @@ extends BossState
 @export var backoff_time: float = 0.75
 @onready var windup: BossState = $"../windup_charge"
 @onready var chase: BossState = $"../chase"
+@onready var juanVoice = $JuanVoice
 
 var t: float = 0.0
 
 func Enter() -> void:
+	juanVoice.play()
 	t = backoff_time
 	boss.clear_end_charge_request()
 

@@ -5,6 +5,7 @@ extends Node
 @export var boss_scene: PackedScene
 @export var spawn_position: Vector2 = Vector2(400, 200)
 @export var spawn_day: int = 3
+@onready var bossMusic = $BossMusic
 
 var boss_spawned: bool = false
 var boss_instance: Node = null
@@ -22,6 +23,7 @@ func _on_day_changed(day: int) -> void:
 		spawn_boss()
 
 func spawn_boss() -> void:
+	bossMusic.play()
 	if not boss_scene:
 		push_error("BossSpawner: No boss scene assigned!")
 		return

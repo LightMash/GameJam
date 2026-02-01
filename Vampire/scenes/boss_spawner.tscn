@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfq3kx5h8j7yn"]
+[gd_scene load_steps=4 format=3 uid="uid://bfq3kx5h8j7yn"]
 
-[ext_resource type="Script" path="res://scripts/boss_spawner.gd" id="1_spawner"]
+[ext_resource type="Script" uid="uid://cxooxh5rq1o2m" path="res://scripts/boss_spawner.gd" id="1_spawner"]
 [ext_resource type="PackedScene" uid="uid://4lijkratbdyq" path="res://horse_boss.tscn" id="2_boss"]
+[ext_resource type="AudioStream" uid="uid://duo1ydho6ctm3" path="res://scenes/components/boss_fight.ogg" id="3_28bik"]
 
 [node name="BossSpawner" type="Node"]
 script = ExtResource("1_spawner")
 boss_scene = ExtResource("2_boss")
-spawn_position = Vector2(400, 200)
-spawn_day = 3
+
+[node name="BossMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_28bik")
+volume_db = 9.978

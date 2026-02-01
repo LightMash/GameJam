@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://burqki1cratep"]
+[gd_scene load_steps=5 format=3 uid="uid://burqki1cratep"]
 
 [ext_resource type="Script" uid="uid://pdppwgd5l4un" path="res://scenes/components/night_cycle_component.gd" id="1_vjftb"]
-[ext_resource type="AudioStream" uid="uid://duo1ydho6ctm3" path="res://scenes/components/boss_fight.ogg" id="2_xjyl6"]
 [ext_resource type="AudioStream" uid="uid://bpo7bi3pbkbkm" path="res://Vamp_menu.ogg" id="3_2yytk"]
 
 [sub_resource type="Gradient" id="Gradient_vjftb"]
@@ -18,15 +17,11 @@ script = ExtResource("1_vjftb")
 night_gradient_texture = SubResource("GradientTexture1D_dqjvr")
 
 [node name="NightMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_xjyl6")
 volume_db = 1.0
-autoplay = true
-stream_paused = true
 bus = &"Music"
 
 [node name="DayMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_2yytk")
-volume_db = 1.0
+volume_db = 0.617
 autoplay = true
-stream_paused = true
 bus = &"Music"

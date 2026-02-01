@@ -3,12 +3,15 @@ extends BossState
 
 @export var recover_time: float = 0.55
 @onready var chase: BossState = $"../chase"
+@onready var blblbl = $blblbl
 
 var t: float = 0.0
 
 func Enter() -> void:
 	t = recover_time
 	boss.set_charge_active(false)
+	blblbl.play()
+	
 
 func Process(delta: float) -> BossState:
 	t -= delta
