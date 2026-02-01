@@ -1,11 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjvwtm81cipk"]
+[gd_scene load_steps=11 format=3 uid="uid://2cdbny4ycnq8"]
 
 [ext_resource type="Script" uid="uid://btqpf0asflpyv" path="res://scripts/monster.gd" id="1_uwnm8"]
 [ext_resource type="Texture2D" uid="uid://ctre1ajq8t0by" path="res://assets/Vampire32_copy_copy.png" id="2_1cbnp"]
-[ext_resource type="Script" uid="uid://bujuvsad4seaj" path="res://scenes/enemy_interactions.gd" id="3_gp4s5"]
-[ext_resource type="PackedScene" uid="uid://dulrkokmctpk" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="4_gdl1p"]
-[ext_resource type="PackedScene" uid="uid://2oxddiofudlc" path="res://GeneralNodes/HitBox/hit_box.tscn" id="5_v8ewj"]
-[ext_resource type="Script" uid="uid://bt1qyvqklce6q" path="res://scripts/collision_shape_2d_enemy.gd" id="6_gdl1p"]
+[ext_resource type="Script" uid="uid://dr3yrvs1xgpk2" path="res://scenes/monster_state_machine.gd" id="3_jlss8"]
+[ext_resource type="Script" uid="uid://bvenwstv20b8q" path="res://scenes/monster_walk_state.gd" id="4_jlss8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1cbnp"]
 radius = 8.0
@@ -38,7 +36,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2i(0, 0), Vector2i(5, 0)]
+"values": [Vector2i(0, 0), Vector2i(6, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_gp4s5"]
@@ -51,10 +49,10 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.93333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2i(0, 1), Vector2i(6, 1)]
+"values": [Vector2i(0, 1), Vector2i(5, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_gdl1p"]
@@ -106,27 +104,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_v8ewj")
 }
 
-[node name="EnemyInteractions" type="Node2D" parent="."]
-script = ExtResource("3_gp4s5")
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_jlss8")
 
-[node name="HurtBox" parent="EnemyInteractions" instance=ExtResource("4_gdl1p")]
-collision_layer = 512
-collision_mask = 1
-monitoring = true
-damage = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyInteractions/HurtBox"]
-position = Vector2(0, 12)
-shape = SubResource("CircleShape2D_yce20")
-debug_color = Color(0.8166713, 0.40661177, 0, 0.41960785)
-
-[node name="HitBox" parent="EnemyInteractions" instance=ExtResource("5_v8ewj")]
-collision_layer = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyInteractions/HitBox"]
-light_mask = 256
-visibility_layer = 2
-position = Vector2(0, 3)
-shape = SubResource("CapsuleShape2D_fttm7")
-debug_color = Color(0.8418261, 0.0011077774, 0.9203202, 0.41960785)
-script = ExtResource("6_gdl1p")
+[node name="walk" type="Node" parent="StateMachine"]
+script = ExtResource("4_jlss8")
