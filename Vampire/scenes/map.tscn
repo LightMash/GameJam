@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://catnsiiwl7buy"]
+[gd_scene load_steps=6 format=4 uid="uid://catnsiiwl7buy"]
 
 [ext_resource type="TileSet" uid="uid://dori3vwwl360p" path="res://Tilesets/game_tile_set.tres" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://cq5tj1snjrwne" path="res://scenes/player.tscn" id="2_paxxb"]
@@ -20,6 +20,8 @@ tile_set = ExtResource("1_4xfga")
 
 [node name="Player" parent="." instance=ExtResource("2_paxxb")]
 position = Vector2(149, 72)
+
+[node name="NightCycleComponent" parent="." instance=ExtResource("5_2klcf")]
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_gldc4")]
 

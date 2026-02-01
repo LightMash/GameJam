@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://burqki1cratep"]
+
+[ext_resource type="Script" uid="uid://pdppwgd5l4un" path="res://scenes/components/night_cycle_component.gd" id="1_vjftb"]
+
+[sub_resource type="Gradient" id="Gradient_vjftb"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.78039217, 0.7607843, 0.72156864, 1, 0.42745098, 0.44705883, 0.5019608, 1, 0.78039217, 0.7607843, 0.72156864, 1)
+metadata/_snap_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dqjvr"]
+gradient = SubResource("Gradient_vjftb")
+
+[node name="NightCycleComponent" type="CanvasModulate"]
+script = ExtResource("1_vjftb")
+night_gradient_texture = SubResource("GradientTexture1D_dqjvr")
