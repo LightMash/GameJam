@@ -4,12 +4,19 @@ extends BossState
 @export var backoff_time: float = 0.75
 @onready var windup: BossState = $"../windup_charge"
 @onready var chase: BossState = $"../chase"
+@onready var audio: AudioStreamPlayer = $"Juan"
 
 var t: float = 0.0
 
 func Enter() -> void:
 	t = backoff_time
 	boss.clear_end_charge_request()
+	if audio:
+		audio.play()
+
+func Exit() -> void:
+	if audio:
+		audio.stop()
 
 func Process(delta: float) -> BossState:
 	if not boss.has_target():

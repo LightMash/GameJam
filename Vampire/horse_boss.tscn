@@ -193,6 +193,7 @@ radius = 19.0
 height = 64.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jfhrp"]
+random_volume_offset_db = 26.77
 streams_count = 12
 stream_0/stream = ExtResource("12_ul07j")
 stream_1/stream = ExtResource("13_hht15")

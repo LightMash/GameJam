@@ -7,9 +7,6 @@ func _ready() -> void:
 	NightCycleManager.time_tick.connect(on_time_tick)
 
 func on_time_tick(day: int, hour: int, minute: int) -> void:
-	if(day == 4 && hour == 1):
-		end_game()
-	else:
 		day_label.text = "Day " + str(day)
 		time_label.text = "%02dh%02d" % [hour, minute]
 

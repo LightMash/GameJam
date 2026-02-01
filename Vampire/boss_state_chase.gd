@@ -7,9 +7,18 @@ var _rng := RandomNumberGenerator.new()
 @onready var idle: BossState = $"../idle"
 @onready var backoff: BossState = $"../backoff"
 @onready var melee: BossState = $"../melee"
+@onready var audio: AudioStreamPlayer = $"gallop"
 
 func _ready() -> void:
 	_rng.randomize()
+
+func Enter() -> void:
+	if audio:
+		audio.play()
+
+func Exit() -> void:
+	if audio:
+		audio.stop()
 
 func Process(_delta: float) -> BossState:
 	if not boss.has_target():

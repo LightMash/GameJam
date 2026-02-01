@@ -101,7 +101,8 @@ func update_heart_display():
 
 
 func Die():
-	get_tree().change_scene_to_file("res://scenes/gameover.tscn")
+	if get_tree() != null:
+		get_tree().change_scene_to_file("res://scenes/gameover.tscn")
 
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
