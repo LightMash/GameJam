@@ -293,7 +293,7 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(8, 8)
+zoom = Vector2(10, 10)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_qlg0r")
@@ -349,40 +349,40 @@ offset_bottom = 40.0
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="HealthBar/HBoxContainer/Heart"]
-position = Vector2(60, 40)
-scale = Vector2(10, 10)
+position = Vector2(120, 80)
+scale = Vector2(20, 20)
 texture = ExtResource("12_3v2ag")
 
 [node name="Heart2" type="TextureRect" parent="HealthBar/HBoxContainer"]
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="HealthBar/HBoxContainer/Heart2"]
-position = Vector2(170, 40)
-scale = Vector2(10, 10)
+position = Vector2(320, 80)
+scale = Vector2(20, 20)
 texture = ExtResource("12_3v2ag")
 
 [node name="Heart3" type="TextureRect" parent="HealthBar/HBoxContainer"]
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="HealthBar/HBoxContainer/Heart3"]
-position = Vector2(280, 40)
-scale = Vector2(10, 10)
+position = Vector2(520, 80)
+scale = Vector2(20, 20)
 texture = ExtResource("12_3v2ag")
 
 [node name="Heart4" type="TextureRect" parent="HealthBar/HBoxContainer"]
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="HealthBar/HBoxContainer/Heart4"]
-position = Vector2(390, 40)
-scale = Vector2(10, 10)
+position = Vector2(720, 80)
+scale = Vector2(20, 20)
 texture = ExtResource("12_3v2ag")
 
 [node name="Heart5" type="TextureRect" parent="HealthBar/HBoxContainer"]
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="HealthBar/HBoxContainer/Heart5"]
-position = Vector2(500, 40)
-scale = Vector2(10, 10)
+position = Vector2(920, 80)
+scale = Vector2(20, 20)
 texture = ExtResource("12_3v2ag")
 
 [connection signal="area_entered" from="Interactions/HurtBox" to="." method="_on_hurt_box_area_entered"]
