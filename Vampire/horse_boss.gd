@@ -179,8 +179,9 @@ func _on_melee_body_entered(body: Node) -> void:
 	if p == null:
 		return
 
-	if p.health:
-		p.health.TakeDamage(melee_damage)
+	# Player has its own TakeDamage() method
+	for i in range(melee_damage):
+		p.TakeDamage()
 
 
 func _on_charge_body_entered(body: Node) -> void:
@@ -191,8 +192,9 @@ func _on_charge_body_entered(body: Node) -> void:
 	if p == null:
 		return
 
-	if p.health:
-		p.health.TakeDamage(charge_damage)
+	# Player has its own TakeDamage() method
+	for i in range(charge_damage):
+		p.TakeDamage()
 
 	request_end_charge()
 

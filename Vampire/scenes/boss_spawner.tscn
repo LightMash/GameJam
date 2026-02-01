@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfq3kx5h8j7yn"]
+
+[ext_resource type="Script" path="res://scripts/boss_spawner.gd" id="1_spawner"]
+[ext_resource type="PackedScene" uid="uid://4lijkratbdyq" path="res://horse_boss.tscn" id="2_boss"]
+
+[node name="BossSpawner" type="Node"]
+script = ExtResource("1_spawner")
+boss_scene = ExtResource("2_boss")
+spawn_position = Vector2(400, 200)
+spawn_day = 3
