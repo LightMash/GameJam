@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://dori3vwwl360p"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://cn5ubkf5l8r33"]
 
 [ext_resource type="Texture2D" uid="uid://b47gub2uxcp2j" path="res://assets/Basic.png" id="1_cbdxd"]
 [ext_resource type="Texture2D" uid="uid://r41t8cgpyfif" path="res://assets/GameJam 2.png" id="2_hu6sp"]

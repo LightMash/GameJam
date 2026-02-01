@@ -1,6 +1,7 @@
 class_name BossStateCharge
 extends BossState
 
+
 @export var charge_time: float = 0.95
 @onready var recover: BossState = $"../recover"
 
