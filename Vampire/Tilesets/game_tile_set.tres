@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://dori3vwwl360p"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://dori3vwwl360p"]
 
 [ext_resource type="Texture2D" uid="uid://b47gub2uxcp2j" path="res://assets/Basic.png" id="1_cbdxd"]
 [ext_resource type="Texture2D" uid="uid://r41t8cgpyfif" path="res://assets/GameJam 2.png" id="2_hu6sp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://punq265h2rdt" path="res://assets/New corner final.png" id="4_xwv23"]
 [ext_resource type="Texture2D" uid="uid://bauvp8kkv07wq" path="res://assets/Ground.png" id="5_0b0mn"]
 [ext_resource type="Texture2D" uid="uid://cfrkf0daypq7p" path="res://assets/More.png" id="6_pi5w0"]
+[ext_resource type="Texture2D" uid="uid://c3yqp4whkl5ld" path="res://assets/Wata.png" id="7_ow828"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwv23"]
 texture = ExtResource("1_cbdxd")
@@ -238,6 +239,14 @@ texture = ExtResource("6_pi5w0")
 6:7/0 = 0
 7:7/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o2x3h"]
+texture = ExtResource("7_ow828")
+0:0/animation_columns = 3
+0:0/animation_frame_0/duration = 0.2
+0:0/animation_frame_1/duration = 0.2
+0:0/animation_frame_2/duration = 0.2
+0:0/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -249,3 +258,4 @@ sources/2 = SubResource("TileSetAtlasSource_pi5w0")
 sources/3 = SubResource("TileSetAtlasSource_ow828")
 sources/4 = SubResource("TileSetAtlasSource_4agr7")
 sources/5 = SubResource("TileSetAtlasSource_mt8is")
+sources/6 = SubResource("TileSetAtlasSource_o2x3h")
