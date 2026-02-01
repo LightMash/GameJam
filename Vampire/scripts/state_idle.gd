@@ -3,6 +3,7 @@ class_name State_Idle extends State
 @onready var walk : State = $"../walk"
 @onready var attack: State = $"../attack"
 @onready var dash: State = $"../dash"
+@onready var emote: State_Emote = $"../emote"
 
 func Enter() -> void:
 	player.UpdateAnimation("idle")
@@ -24,6 +25,8 @@ func Physics(_delta: float) -> State:
 	return null
 
 func HandleInput(event: InputEvent) -> State:
+	if event.is_action_pressed("emote"):
+		return emote
 	if event.is_action_pressed("dash"):
 		return dash
 	if event.is_action_pressed("attack"):
