@@ -1,7 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2rb1wlrsc2gf"]
+[gd_scene load_steps=8 format=3 uid="uid://c2rb1wlrsc2gf"]
 
 [ext_resource type="PackedScene" uid="uid://dwrahx6iso5rg" path="res://ui/night_panel.tscn" id="1_g4tl3"]
 [ext_resource type="Theme" uid="uid://dtis1gio6djys" path="res://ui/Ressources/Themes & Stylebox/game_ui_theme.tres" id="1_sp4y4"]
+[ext_resource type="Texture2D" uid="uid://dum0nb2skgovr" path="res://ui/aaaererggh.png" id="3_vb34k"]
+[ext_resource type="Script" uid="uid://xdnjalabn0h3" path="res://ui/dice_roll.gd" id="4_bethk"]
+
+[sub_resource type="Animation" id="Animation_bethk"]
+resource_name = "dice"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2i(0, 5), Vector2i(11, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_n4oob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_edptm"]
+_data = {
+&"RESET": SubResource("Animation_n4oob"),
+&"dice": SubResource("Animation_bethk")
+}
 
 [node name="GameScreen" type="CanvasLayer"]
 
@@ -13,7 +51,29 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_sp4y4")
 
-[node name="NightPanel" parent="MarginContainer" instance=ExtResource("1_g4tl3")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="NightPanel" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_g4tl3")]
+layout_mode = 2
+
+[node name="Dice" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 123)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/Dice"]
+position = Vector2(120, 61.5)
+scale = Vector2(3, 3)
+texture = ExtResource("3_vb34k")
+hframes = 13
+vframes = 14
+frame = 65
+script = ExtResource("4_bethk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/Dice/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_edptm")
+}

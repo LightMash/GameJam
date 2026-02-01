@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://56rl1r02norn"]
+
+[ext_resource type="Script" uid="uid://bktac48d8pvwp" path="res://Utility/enemy_spawner.gd" id="1_v14hi"]
+[ext_resource type="Script" uid="uid://cme6w13rcv624" path="res://Utility/spawn_info.gd" id="2_2wm2k"]
+[ext_resource type="PackedScene" uid="uid://2cdbny4ycnq8" path="res://scenes/monster.tscn" id="3_5yyhq"]
+
+[sub_resource type="Resource" id="Resource_5yyhq"]
+script = ExtResource("2_2wm2k")
+time_end = 60
+monster = ExtResource("3_5yyhq")
+metadata/_custom_type_script = "uid://cme6w13rcv624"
+
+[node name="EnemySpawner" type="Node2D"]
+script = ExtResource("1_v14hi")
+spawns = Array[ExtResource("2_2wm2k")]([SubResource("Resource_5yyhq")])
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
