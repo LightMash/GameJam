@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 class_name HitBox extends Area2D
 
 signal Damaged(damage: int)
@@ -13,3 +14,12 @@ func _process(delta: float) -> void:
 func TakeDamage(damage: int) -> void:
 	print("TakeDamage: ", damage)
 	Damaged.emit(damage)
+=======
+class_name HitBoxPlayer
+extends Area2D
+func _ready():
+	add_to_group("player_hitbox")
+
+func TakeDamage() -> void:
+	get_parent().get_parent().TakeDamage()
+>>>>>>> Stashed changes

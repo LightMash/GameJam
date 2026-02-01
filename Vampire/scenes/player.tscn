@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=30 format=3 uid="uid://cq5tj1snjrwne"]
+=======
+[gd_scene format=3 uid="uid://cq5tj1snjrwne"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" uid="uid://d24bq5kd8w1dj" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://c0ylhbv5fsif4" path="res://assets/F0.png" id="2_qlg0r"]
@@ -260,65 +264,93 @@ _data = {
 radius = 12.0415945
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
+<<<<<<< Updated upstream
 radius = 7.0
 height = 28.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+=======
+radius = 8.0
+height = 26.0
+
+[node name="Player" type="CharacterBody2D" unique_id=335777 groups=["player"]]
+y_sort_enabled = true
+>>>>>>> Stashed changes
 position = Vector2(0, -20)
 script = ExtResource("1_qhqgy")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=519619006]
 texture = ExtResource("2_qlg0r")
 hframes = 13
 vframes = 14
 frame = 13
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1613052220]
 position = Vector2(0, 15)
 shape = SubResource("CircleShape2D_tuyoq")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_f1ej7")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=979598227]
+libraries/ = SubResource("AnimationLibrary_f1ej7")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1309185212]
 zoom = Vector2(8, 8)
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." unique_id=1209766925]
 script = ExtResource("3_qlg0r")
 
-[node name="idle" type="Node" parent="StateMachine"]
+[node name="idle" type="Node" parent="StateMachine" unique_id=493911103]
 script = ExtResource("4_dqkch")
 
-[node name="walk" type="Node" parent="StateMachine"]
+[node name="walk" type="Node" parent="StateMachine" unique_id=584765061]
 script = ExtResource("5_qlg0r")
 
-[node name="attack" type="Node" parent="StateMachine"]
+[node name="attack" type="Node" parent="StateMachine" unique_id=260582285]
 script = ExtResource("6_ur7pv")
 decelerate_speed = 1.0
 
-[node name="dash" type="Node" parent="StateMachine"]
+[node name="dash" type="Node" parent="StateMachine" unique_id=1524830561]
 script = ExtResource("7_y4r1p")
 
-[node name="emote" type="Node" parent="StateMachine"]
+[node name="emote" type="Node" parent="StateMachine" unique_id=1566534437]
 script = ExtResource("8_d2wvv")
 
-[node name="Interactions" type="Node2D" parent="."]
+[node name="Interactions" type="Node2D" parent="." unique_id=2130441149]
 script = ExtResource("9_y4r1p")
 
+<<<<<<< Updated upstream
 [node name="HurtBox" parent="Interactions" instance=ExtResource("6_fjrip")]
 collision_mask = 2
 monitoring = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HurtBox"]
 position = Vector2(0, 11)
+=======
+[node name="HurtBox" parent="Interactions" unique_id=22796816 instance=ExtResource("6_fjrip")]
+position = Vector2(-25, 14)
+collision_layer = 2
+collision_mask = 1
+monitoring = true
+script = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HurtBox" unique_id=1319518250]
+position = Vector2(25, 1)
+>>>>>>> Stashed changes
 shape = SubResource("CircleShape2D_ur7pv")
 debug_color = Color(0.99215686, 0, 0, 0.41960785)
 
+<<<<<<< Updated upstream
 [node name="HitBox" parent="Interactions" instance=ExtResource("7_smehm")]
+=======
+[node name="HitBox" parent="Interactions" unique_id=201707316 instance=ExtResource("7_smehm")]
+collision_layer = 1
+>>>>>>> Stashed changes
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HitBox" unique_id=232420871]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_y4r1p")
 debug_color = Color(0, 0.63427913, 0.4345184, 0.41960785)
+<<<<<<< Updated upstream
+=======
+
+[connection signal="area_entered" from="Interactions/HurtBox" to="." method="_on_hurt_box_area_entered"]
+>>>>>>> Stashed changes

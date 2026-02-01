@@ -6,6 +6,10 @@ var direction : Vector2 = Vector2.ZERO
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
+<<<<<<< Updated upstream
+=======
+@onready var health: int = 5
+>>>>>>> Stashed changes
 
 signal DirectionChanged(new_direction: Vector2)
 
@@ -72,3 +76,18 @@ func AnimDirection() -> String:
 		return "up"
 	else:
 		return "side"
+
+func TakeDamage():
+	health = health -1
+	if health <= 0:
+		Die()
+	print(health)
+	pass
+	
+func Die():
+	get_tree().change_scene_to_file("res://scenes/gameover.tscn")
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy_hitbox"):
+		area.TakeDamage()

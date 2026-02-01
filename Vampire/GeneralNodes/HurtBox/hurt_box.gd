@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 class_name HurtBox extends Area2D
 
 @export var damage : int = 1
@@ -15,3 +16,10 @@ func AreaEntered(area : Area2D) -> void:
 	if area is HitBox:
 		area.TakeDamage(damage)
 	pass
+=======
+class_name HurtBoxPlayer
+extends Area2D
+
+func _ready():
+	add_to_group("player_hurtbox")
+>>>>>>> Stashed changes
