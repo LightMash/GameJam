@@ -78,12 +78,22 @@ func AnimDirection() -> String:
 		return "side"
 
 func TakeDamage():
-	if gameState.player_is_hunting == false :
-		health = health -1
+	health = health -1
 	update_heart_display()
 	if health <= 0:
 		Die()
 	print(health)
+	flash()
+
+func flash() -> void:
+	var tween = create_tween()
+	var sprite = $Sprite2D
+	tween.set_trans(Tween.TRANS_LINEAR)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(sprite, "modulate:a", 0.3, 0.1)
+	tween.tween_property(sprite, "modulate:a", 1.0, 0.1)
+	tween.tween_property(sprite, "modulate:a", 0.3, 0.1)
+	tween.tween_property(sprite, "modulate:a", 1.0, 0.1)
 
 func update_heart_display():
 	for i in range(hearts_list.size()):
