@@ -37,7 +37,7 @@ extends CharacterBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: BossStateMachine = $StateMachine
-@onready var health: Health = $Health
+@onready var health:  = $Health
 
 @onready var melee_hitbox: Area2D = $Hitboxes/MeleeHitbox
 @onready var charge_hitbox: Area2D = $Hitboxes/ChargeHitbox
@@ -273,3 +273,8 @@ func pause_anim() -> void:
 
 func stop_motion() -> void:
 	velocity = Vector2.ZERO
+
+
+func _on_charge_hurtbox_area_entered(area: Area2D) -> void:
+		if area.is_in_group("player_hitbox"):
+			area.TakeDamage()

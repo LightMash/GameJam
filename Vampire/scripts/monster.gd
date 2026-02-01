@@ -31,4 +31,5 @@ func Die():
 	
 func _on_area_2d_attack_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_hitbox"):
-		area.TakeDamage()
+		if gameState.player_is_hunting == false :
+			area.TakeDamage()

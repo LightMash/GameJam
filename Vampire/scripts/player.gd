@@ -78,8 +78,7 @@ func AnimDirection() -> String:
 		return "side"
 
 func TakeDamage():
-	if gameState.player_is_hunting == false :
-		health = health -1
+	health = health -1
 	update_heart_display()
 	if health <= 0:
 		Die()

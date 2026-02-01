@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ctre1ajq8t0by" path="res://assets/Vampire32_copy_copy.png" id="2_1cbnp"]
 [ext_resource type="Script" uid="uid://dr3yrvs1xgpk2" path="res://scenes/monster_state_machine.gd" id="3_jlss8"]
 [ext_resource type="Script" uid="uid://bvenwstv20b8q" path="res://scenes/monster_walk_state.gd" id="4_jlss8"]
-[ext_resource type="Script" uid="uid://cg3d22mlbu5y6" path="res://scripts/collision_shape_2d_2.gd" id="5_gp4s5"]
+[ext_resource type="Script" path="res://scripts/collision_shape_2d_2.gd" id="5_gp4s5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1cbnp"]
 radius = 8.0

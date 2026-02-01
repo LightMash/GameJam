@@ -165,8 +165,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0bnu1"]
-radius = 25.0
-height = 70.0
+radius = 19.0
+height = 42.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xaia4"]
 radius = 12.626387
@@ -178,6 +178,7 @@ height = 64.0
 
 [node name="HorseBoss" type="CharacterBody2D"]
 position = Vector2(-24, -68)
+collision_layer = 2
 script = ExtResource("1_q2gsd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -202,19 +203,18 @@ script = ExtResource("2_v6dql")
 
 [node name="Hitboxes" type="Node2D" parent="."]
 
-[node name="MeleeHitbox" type="Area2D" parent="Hitboxes"]
+[node name="MeleeHurtBox" type="Area2D" parent="Hitboxes"]
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/MeleeHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/MeleeHurtBox"]
 position = Vector2(40.000004, 2.000001)
 rotation = -1.3089969
 shape = SubResource("CapsuleShape2D_xaia4")
 debug_color = Color(0.37254903, 0.37254903, 0.37254903, 0.7137255)
 
-[node name="ChargeHitbox" type="Area2D" parent="Hitboxes"]
-monitoring = false
+[node name="ChargeHurtbox" type="Area2D" parent="Hitboxes"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/ChargeHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/ChargeHurtbox"]
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_v6dql")
 debug_color = Color(0.5019608, 0.5019608, 0.5019608, 0.73333335)
@@ -242,3 +242,5 @@ script = ExtResource("10_uiv8r")
 
 [node name="recover" type="Node" parent="StateMachine"]
 script = ExtResource("11_ywwff")
+
+[connection signal="area_entered" from="Hitboxes/ChargeHurtbox" to="." method="_on_charge_hurtbox_area_entered"]

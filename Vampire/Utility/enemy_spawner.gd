@@ -36,7 +36,7 @@ func _on_timer_timeout() -> void:
 			add_child(enemy)
 
 func get_random_position() -> Vector2:
-	var vpr = get_viewport_rect().size * randf_range(1.1, 1.4)
+	var vpr = get_viewport_rect().size * randf_range(0.1, 0.5)
 
 	var top_left     = Vector2(player.global_position.x - vpr.x / 2, player.global_position.y - vpr.y / 2)
 	var top_right    = Vector2(player.global_position.x + vpr.x / 2, player.global_position.y - vpr.y / 2)
