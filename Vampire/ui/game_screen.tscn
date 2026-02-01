@@ -78,3 +78,5 @@ script = ExtResource("4_bethk")
 libraries = {
 &"": SubResource("AnimationLibrary_edptm")
 }
+
+[node name="Sprite2D2" type="Sprite2D" parent="MarginContainer/VBoxContainer/Dice"]
