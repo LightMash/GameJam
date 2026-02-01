@@ -11,10 +11,10 @@ texture = SubResource("AtlasTexture_vv8cf")
 region_rect = Rect2(2, 5, 30, 21)
 
 [resource]
-MarginContainer/constants/margin_bottom = 10
-MarginContainer/constants/margin_left = 10
-MarginContainer/constants/margin_right = 15
-MarginContainer/constants/margin_top = 10
+MarginContainer/constants/margin_bottom = 30
+MarginContainer/constants/margin_left = 30
+MarginContainer/constants/margin_right = 30
+MarginContainer/constants/margin_top = 30
 NightCounterPanel/base_type = &"PanelContainer"
 NightCounterPanel/styles/panel = SubResource("StyleBoxTexture_5isfg")
 NightLabel/base_type = &"Label"

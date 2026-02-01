@@ -1,7 +1,7 @@
 extends Node
 
 # Real-time duration of one full "day" (7pm -> 7am)
-const DAY_DURATION_SECONDS: float = 2.0 * 60.0  # 5 minutes
+const DAY_DURATION_SECONDS: float = 1.0 * 60.0  # 5 minutes
 
 # In-game displayed clock window
 const START_HOUR: int = 19          # 19 = 7 PM
