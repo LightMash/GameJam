@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bx68x4vdv6af7"
+path="res://.godot/imported/homicide.garageband - 2026-02-01, 07.11.wav-0f96b75244d39b4821eee6f9bc9d4e87.sample"
+
+[deps]
+
+source_file="res://homicide.garageband - 2026-02-01, 07.11.wav"
+dest_files=["res://.godot/imported/homicide.garageband - 2026-02-01, 07.11.wav-0f96b75244d39b4821eee6f9bc9d4e87.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

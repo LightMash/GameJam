@@ -1,0 +1,244 @@
+[gd_scene load_steps=25 format=3 uid="uid://4lijkratbdyq"]
+
+[ext_resource type="Script" uid="uid://dig0lixqtlfr2" path="res://horse_boss.gd" id="1_q2gsd"]
+[ext_resource type="Texture2D" uid="uid://b7ld1whs224np" path="res://assets/don_juan.png" id="1_xaia4"]
+[ext_resource type="Texture2D" uid="uid://vvpf835fwu47" path="res://Untitled copy.png" id="2_idle"]
+[ext_resource type="Script" uid="uid://j80du1dkomvn" path="res://scripts/health.gd" id="2_v6dql"]
+[ext_resource type="Script" path="res://boss_state_machine.gd" id="4_q3siq"]
+[ext_resource type="Script" path="res://boss_state_idle.gd" id="5_q3siq"]
+[ext_resource type="Script" path="res://boss_state_chase.gd" id="6_etjxj"]
+[ext_resource type="Script" path="res://boss_state_backoff.gd" id="7_bnonc"]
+[ext_resource type="Script" path="res://boss_state_windup_charge.gd" id="8_u34bu"]
+[ext_resource type="Script" path="res://boss_state_charge.gd" id="9_etjxj"]
+[ext_resource type="Script" path="res://boss_state_melee.gd" id="10_uiv8r"]
+[ext_resource type="Script" path="res://boss_state_recover.gd" id="11_ywwff"]
+
+[sub_resource type="Animation" id="Animation_0bnu1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_we8h1"]
+resource_name = "attack_dash"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.56666666, 0.6333333, 0.7, 0.76666665, 0.8333333, 1.3333334, 1.4333333, 1.5333333, 1.6333332, 1.7333333, 1.8333333, 1.9333334, 2.0333333, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 3, 3, 4, 3, 3, 3, 7, 8, 9, 8, 7, 0, 2, 3, 3, 4, 3, 3]
+}
+
+[sub_resource type="Animation" id="Animation_o1i15"]
+resource_name = "attack_side"
+length = 0.52
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.52),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2i(0, 1), Vector2i(5, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kvofc"]
+resource_name = "idle_side"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_idle")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_lnbgr"]
+resource_name = "walk_down"
+
+[sub_resource type="Animation" id="Animation_6xxrv"]
+resource_name = "walk_side"
+length = 0.65
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.65),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2i(0, 0), Vector2i(5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_skx2t"]
+resource_name = "walk_up"
+
+[sub_resource type="Animation" id="Animation_etjxj"]
+resource_name = "idle_horse"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o1i15"]
+_data = {
+&"RESET": SubResource("Animation_0bnu1"),
+&"attack_dash": SubResource("Animation_we8h1"),
+&"attack_side": SubResource("Animation_o1i15"),
+&"idle_horse": SubResource("Animation_etjxj"),
+&"idle_side": SubResource("Animation_kvofc"),
+&"walk_down": SubResource("Animation_lnbgr"),
+&"walk_side": SubResource("Animation_6xxrv"),
+&"walk_up": SubResource("Animation_skx2t")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0bnu1"]
+radius = 25.0
+height = 70.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xaia4"]
+radius = 12.626387
+height = 39.81099
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v6dql"]
+radius = 19.0
+height = 64.0
+
+[node name="HorseBoss" type="CharacterBody2D"]
+position = Vector2(-24, -68)
+script = ExtResource("1_q2gsd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(14, 0)
+texture = ExtResource("1_xaia4")
+hframes = 6
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_o1i15")
+}
+script = ExtResource("5_q3siq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_0bnu1")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_v6dql")
+
+[node name="Hitboxes" type="Node2D" parent="."]
+
+[node name="MeleeHitbox" type="Area2D" parent="Hitboxes"]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/MeleeHitbox"]
+position = Vector2(40.000004, 2.000001)
+rotation = -1.3089969
+shape = SubResource("CapsuleShape2D_xaia4")
+debug_color = Color(0.37254903, 0.37254903, 0.37254903, 0.7137255)
+
+[node name="ChargeHitbox" type="Area2D" parent="Hitboxes"]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/ChargeHitbox"]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_v6dql")
+debug_color = Color(0.5019608, 0.5019608, 0.5019608, 0.73333335)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_q3siq")
+
+[node name="idle" type="Node" parent="StateMachine"]
+script = ExtResource("5_q3siq")
+
+[node name="chase" type="Node" parent="StateMachine"]
+script = ExtResource("6_etjxj")
+
+[node name="backoff" type="Node" parent="StateMachine"]
+script = ExtResource("7_bnonc")
+
+[node name="windup_charge" type="Node" parent="StateMachine"]
+script = ExtResource("8_u34bu")
+
+[node name="charge" type="Node" parent="StateMachine"]
+script = ExtResource("9_etjxj")
+
+[node name="melee" type="Node" parent="StateMachine"]
+script = ExtResource("10_uiv8r")
+
+[node name="recover" type="Node" parent="StateMachine"]
+script = ExtResource("11_ywwff")
