@@ -1,8 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqo5gt54egyyc"]
+[gd_scene load_steps=13 format=3 uid="uid://dqo5gt54egyyc"]
 
 [ext_resource type="Texture2D" uid="uid://7nu0y41qus86" path="res://assets/dice_sheet.png" id="1_mg5ex"]
 [ext_resource type="Theme" uid="uid://dtis1gio6djys" path="res://ui/Ressources/Themes & Stylebox/game_ui_theme.tres" id="1_oi81l"]
 [ext_resource type="Script" uid="uid://xdnjalabn0h3" path="res://ui/dice_roll.gd" id="2_oi81l"]
+[ext_resource type="Texture2D" uid="uid://dve22x31bhwcy" path="res://assets/d1.png" id="4_dicg2"]
+[ext_resource type="Texture2D" uid="uid://doe5ravryutw7" path="res://assets/d2.png" id="5_pgf55"]
+[ext_resource type="Texture2D" uid="uid://c7013v1yetf44" path="res://assets/d4.png" id="6_dlvbc"]
+[ext_resource type="Texture2D" uid="uid://c5o7cgi4lrqbd" path="res://assets/d3.png" id="7_skxya"]
+[ext_resource type="Texture2D" uid="uid://mn2gn4swbkof" path="res://assets/d5.png" id="8_4kp1s"]
+[ext_resource type="Texture2D" uid="uid://bdscw771o0vym" path="res://assets/d6.png" id="9_nkpnt"]
 
 [sub_resource type="Animation" id="Animation_y1pwo"]
 length = 0.001
@@ -17,6 +23,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2i(0, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DiceFaces/D1:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_dicg2")]
 }
 
 [sub_resource type="Animation" id="Animation_edptm"]
@@ -76,3 +94,35 @@ script = ExtResource("2_oi81l")
 libraries = {
 &"": SubResource("AnimationLibrary_taei7")
 }
+
+[node name="DiceFaces" type="Node2D" parent="DiceSprite2D"]
+
+[node name="D1" type="Sprite2D" parent="DiceSprite2D/DiceFaces"]
+position = Vector2(-17.523834, -132.57143)
+scale = Vector2(0.3809524, 0.3809524)
+texture = ExtResource("4_dicg2")
+
+[node name="D2" type="Sprite2D" parent="DiceSprite2D/DiceFaces"]
+position = Vector2(-17.523834, -132.57143)
+scale = Vector2(0.3809524, 0.3809524)
+texture = ExtResource("5_pgf55")
+
+[node name="D3" type="Sprite2D" parent="DiceSprite2D/DiceFaces"]
+position = Vector2(-17.523834, -132.57143)
+scale = Vector2(0.3809524, 0.3809524)
+texture = ExtResource("6_dlvbc")
+
+[node name="D4" type="Sprite2D" parent="DiceSprite2D/DiceFaces"]
+position = Vector2(-17.523834, -132.57143)
+scale = Vector2(0.3809524, 0.3809524)
+texture = ExtResource("7_skxya")
+
+[node name="D5" type="Sprite2D" parent="DiceSprite2D/DiceFaces"]
+position = Vector2(-17.523834, -132.57143)
+scale = Vector2(0.3809524, 0.3809524)
+texture = ExtResource("8_4kp1s")
+
+[node name="D6" type="Sprite2D" parent="DiceSprite2D/DiceFaces"]
+position = Vector2(-17.523834, -132.57143)
+scale = Vector2(0.3809524, 0.3809524)
+texture = ExtResource("9_nkpnt")
