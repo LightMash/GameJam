@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://4lijkratbdyq"]
+[gd_scene load_steps=43 format=3 uid="uid://4lijkratbdyq"]
 
 [ext_resource type="Script" uid="uid://dig0lixqtlfr2" path="res://horse_boss.gd" id="1_q2gsd"]
 [ext_resource type="Texture2D" uid="uid://b7ld1whs224np" path="res://assets/don_juan.png" id="1_xaia4"]
@@ -9,11 +9,25 @@
 [ext_resource type="Script" uid="uid://c8uw2vkar6okl" path="res://boss_state_chase.gd" id="6_etjxj"]
 [ext_resource type="Script" path="res://boss_interactions.gd" id="6_nqpnl"]
 [ext_resource type="Script" uid="uid://bihn0ne8lh83q" path="res://boss_state_backoff.gd" id="7_bnonc"]
+[ext_resource type="AudioStream" uid="uid://qmeaxgeux7ib" path="res://scenes/components/horse_phurrh.garageband - 2026-02-01, 07.13.wav" id="8_62t0r"]
 [ext_resource type="Script" uid="uid://b3gt0bdctfqc1" path="res://boss_state_windup_charge.gd" id="8_u34bu"]
 [ext_resource type="Script" uid="uid://dibssxs80ympc" path="res://boss_state_charge.gd" id="9_etjxj"]
+[ext_resource type="AudioStream" uid="uid://dqovkuvbswf36" path="res://scenes/components/horse_gallop.garageband - 2026-02-01, 07.12.wav" id="10_h4buj"]
 [ext_resource type="Script" uid="uid://ckg6yk0q6nep3" path="res://boss_state_melee.gd" id="10_uiv8r"]
 [ext_resource type="Script" uid="uid://cyx3l4kqwhum" path="res://boss_state_recover.gd" id="11_ywwff"]
 [ext_resource type="Script" uid="uid://cg3d22mlbu5y6" path="res://scripts/collision_shape_2d_2.gd" id="12_bnonc"]
+[ext_resource type="AudioStream" uid="uid://bv4e6umel0iv8" path="res://Juan_1.wav" id="12_ul07j"]
+[ext_resource type="AudioStream" uid="uid://cas63e063cwhs" path="res://Juan_2.wav" id="13_hht15"]
+[ext_resource type="AudioStream" uid="uid://13skbpde3h2j" path="res://Juan_11.wav" id="14_s1ejp"]
+[ext_resource type="AudioStream" uid="uid://dcr3mbd3ycgk7" path="res://Juan_12.wav" id="15_aey7x"]
+[ext_resource type="AudioStream" uid="uid://cemew8aah8jss" path="res://Juan_3.wav" id="16_orcr4"]
+[ext_resource type="AudioStream" uid="uid://d14okyqtj3lys" path="res://Juan_4.wav" id="17_88ewv"]
+[ext_resource type="AudioStream" uid="uid://bicdnuighvu2w" path="res://Juan_5.wav" id="18_llyhb"]
+[ext_resource type="AudioStream" uid="uid://bbi4q6a72q0is" path="res://Juan_6.wav" id="19_bojk7"]
+[ext_resource type="AudioStream" uid="uid://dt22vydj45slg" path="res://Juan_7.wav" id="20_ryg4x"]
+[ext_resource type="AudioStream" uid="uid://dx54uvcfnbcnf" path="res://Juan_8.wav" id="21_2s02b"]
+[ext_resource type="AudioStream" uid="uid://byym78p8kn7pk" path="res://Juan_9.wav" id="22_pe5hi"]
+[ext_resource type="AudioStream" uid="uid://b0ae75hkicle5" path="res://Juan_10.wav" id="23_fc3xq"]
 
 [sub_resource type="Animation" id="Animation_0bnu1"]
 length = 0.001
@@ -178,6 +192,21 @@ height = 39.81099
 radius = 19.0
 height = 64.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jfhrp"]
+streams_count = 12
+stream_0/stream = ExtResource("12_ul07j")
+stream_1/stream = ExtResource("13_hht15")
+stream_2/stream = ExtResource("16_orcr4")
+stream_3/stream = ExtResource("17_88ewv")
+stream_4/stream = ExtResource("18_llyhb")
+stream_5/stream = ExtResource("19_bojk7")
+stream_6/stream = ExtResource("20_ryg4x")
+stream_7/stream = ExtResource("21_2s02b")
+stream_8/stream = ExtResource("22_pe5hi")
+stream_9/stream = ExtResource("23_fc3xq")
+stream_10/stream = ExtResource("14_s1ejp")
+stream_11/stream = ExtResource("15_aey7x")
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u34bu"]
 radius = 21.997658
 height = 70.02175
@@ -232,11 +261,23 @@ script = ExtResource("4_q3siq")
 [node name="idle" type="Node" parent="StateMachine"]
 script = ExtResource("5_q3siq")
 
+[node name="phurh sound" type="AudioStreamPlayer" parent="StateMachine/idle"]
+stream = ExtResource("8_62t0r")
+autoplay = true
+
 [node name="chase" type="Node" parent="StateMachine"]
 script = ExtResource("6_etjxj")
 
+[node name="gallop" type="AudioStreamPlayer" parent="StateMachine/chase"]
+stream = ExtResource("10_h4buj")
+autoplay = true
+
 [node name="backoff" type="Node" parent="StateMachine"]
 script = ExtResource("7_bnonc")
+
+[node name="Juan" type="AudioStreamPlayer" parent="StateMachine/backoff"]
+stream = SubResource("AudioStreamRandomizer_jfhrp")
+autoplay = true
 
 [node name="windup_charge" type="Node" parent="StateMachine"]
 script = ExtResource("8_u34bu")
