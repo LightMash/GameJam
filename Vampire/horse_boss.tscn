@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://dig0lixqtlfr2" path="res://horse_boss.gd" id="1_q2gsd"]
 [ext_resource type="Texture2D" uid="uid://b7ld1whs224np" path="res://assets/don_juan.png" id="1_xaia4"]
 [ext_resource type="Texture2D" uid="uid://vvpf835fwu47" path="res://Untitled copy.png" id="2_idle"]
-[ext_resource type="Script" uid="uid://j80du1dkomvn" path="res://scripts/health.gd" id="2_v6dql"]
-[ext_resource type="Script" path="res://boss_state_machine.gd" id="4_q3siq"]
-[ext_resource type="Script" path="res://boss_state_idle.gd" id="5_q3siq"]
-[ext_resource type="Script" path="res://boss_state_chase.gd" id="6_etjxj"]
-[ext_resource type="Script" path="res://boss_state_backoff.gd" id="7_bnonc"]
-[ext_resource type="Script" path="res://boss_state_windup_charge.gd" id="8_u34bu"]
-[ext_resource type="Script" path="res://boss_state_charge.gd" id="9_etjxj"]
-[ext_resource type="Script" path="res://boss_state_melee.gd" id="10_uiv8r"]
-[ext_resource type="Script" path="res://boss_state_recover.gd" id="11_ywwff"]
+[ext_resource type="Script" path="res://scripts/health.gd" id="2_v6dql"]
+[ext_resource type="Script" uid="uid://co334q8xauedt" path="res://boss_state_machine.gd" id="4_q3siq"]
+[ext_resource type="Script" uid="uid://b4t64my1sdkq6" path="res://boss_state_idle.gd" id="5_q3siq"]
+[ext_resource type="Script" uid="uid://c8uw2vkar6okl" path="res://boss_state_chase.gd" id="6_etjxj"]
+[ext_resource type="Script" uid="uid://bihn0ne8lh83q" path="res://boss_state_backoff.gd" id="7_bnonc"]
+[ext_resource type="Script" uid="uid://b3gt0bdctfqc1" path="res://boss_state_windup_charge.gd" id="8_u34bu"]
+[ext_resource type="Script" uid="uid://dibssxs80ympc" path="res://boss_state_charge.gd" id="9_etjxj"]
+[ext_resource type="Script" uid="uid://ckg6yk0q6nep3" path="res://boss_state_melee.gd" id="10_uiv8r"]
+[ext_resource type="Script" uid="uid://cyx3l4kqwhum" path="res://boss_state_recover.gd" id="11_ywwff"]
 
 [sub_resource type="Animation" id="Animation_0bnu1"]
 length = 0.001
@@ -72,6 +72,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2i(0, 1), Vector2i(5, 1)]
 }
+
+[sub_resource type="Animation" id="Animation_etjxj"]
+resource_name = "idle_horse"
 
 [sub_resource type="Animation" id="Animation_kvofc"]
 resource_name = "idle_side"
@@ -148,9 +151,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_skx2t"]
 resource_name = "walk_up"
-
-[sub_resource type="Animation" id="Animation_etjxj"]
-resource_name = "idle_horse"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o1i15"]
 _data = {
