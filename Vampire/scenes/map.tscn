@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://catnsiiwl7buy"]
+[gd_scene load_steps=9 format=4 uid="uid://catnsiiwl7buy"]
 
 [ext_resource type="TileSet" uid="uid://cn5ubkf5l8r33" path="res://Tilesets/game_tile_set.tres" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://toegbtl8wq3w" path="res://scenes/player.tscn" id="2_paxxb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://burqki1cratep" path="res://scenes/components/night_cycle_component.tscn" id="5_2klcf"]
 [ext_resource type="PackedScene" uid="uid://2cdbny4ycnq8" path="res://scenes/monster.tscn" id="7_nakos"]
 [ext_resource type="PackedScene" uid="uid://bfq3kx5h8j7yn" path="res://scenes/boss_spawner.tscn" id="8_boss"]
+[ext_resource type="PackedScene" uid="uid://4lijkratbdyq" path="res://horse_boss.tscn" id="8_jh32y"]
 
 [node name="TestSceneMap" type="Node2D"]
 y_sort_enabled = true
@@ -42,3 +43,6 @@ position = Vector2(149, 72)
 position = Vector2(261, 66)
 
 [node name="BossSpawner" parent="." instance=ExtResource("8_boss")]
+
+[node name="HorseBoss" parent="." instance=ExtResource("8_jh32y")]
+position = Vector2(187, 144)
