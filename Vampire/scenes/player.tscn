@@ -309,7 +309,6 @@ script = ExtResource("5_qlg0r")
 
 [node name="attack" type="Node" parent="StateMachine"]
 script = ExtResource("6_ur7pv")
-decelerate_speed = 1.0
 
 [node name="attack_sound" type="AudioStreamPlayer" parent="StateMachine/attack"]
 stream = ExtResource("7_f1ej7")
