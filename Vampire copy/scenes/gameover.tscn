@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://co12wxaly7jik"]
+
+[ext_resource type="Script" uid="uid://cuwo8oe1gm201" path="res://scripts/gameover.gd" id="1_h8i2o"]
+[ext_resource type="Texture2D" uid="uid://bfr40j6gkl8y5" path="res://assets/GameOverScreen.png" id="2_mt7yr"]
+[ext_resource type="FontVariation" uid="uid://bosa6q7pw5auk" path="res://ui/Ressources/font/ui_font_label.tres" id="2_qwp2v"]
+[ext_resource type="FontVariation" uid="uid://b7m70ts8yfcru" path="res://ui/Ressources/font/ui_font.tres" id="3_3gj0k"]
+[ext_resource type="StyleBox" uid="uid://de61c7bh14sgf" path="res://ui/Ressources/Themes & Stylebox/hover_button.tres" id="3_qwp2v"]
+[ext_resource type="StyleBox" uid="uid://cwu67ajxb4kob" path="res://ui/Ressources/Themes & Stylebox/normal_button.tres" id="4_3gj0k"]
+
+[sub_resource type="Theme" id="Theme_3gj0k"]
+Label/colors/font_color = Color(0.48917896, 0.4097131, 0.12306147, 1)
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("2_qwp2v")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ke020"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwp2v"]
+draw_center = false
+
+[sub_resource type="Theme" id="Theme_r8puk"]
+Button/colors/font_color = Color(0.95, 0.83916664, 0.475, 1)
+Button/colors/font_hover_color = Color(0.6, 0.5012, 0.14400001, 1)
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("3_3gj0k")
+Button/styles/focus = SubResource("StyleBoxEmpty_ke020")
+Button/styles/hover = SubResource("StyleBoxFlat_qwp2v")
+Button/styles/normal = ExtResource("4_3gj0k")
+Button/styles/pressed = ExtResource("3_qwp2v")
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_h8i2o")
+
+[node name="GameOver" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverBackground" type="NinePatchRect" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_3gj0k")
+texture = ExtResource("2_mt7yr")
+
+[node name="GameOverTitle" type="NinePatchRect" parent="GameOver/GameOverBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="returnToTitleScreenLabel" type="Label" parent="GameOver/GameOverBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = 159.0
+offset_right = 222.0
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Return to title screen"
+
+[node name="returnToTitleScreen" type="Button" parent="GameOver/GameOverBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.76100004
+anchor_right = 0.5
+anchor_bottom = 0.76100004
+offset_left = -221.5
+offset_top = -21.128021
+offset_right = 226.5
+offset_bottom = 22.871979
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_r8puk")
+text = "Return to title screen"
+
+[connection signal="pressed" from="GameOver/GameOverBackground/returnToTitleScreen" to="." method="_on_return_to_title_screen_pressed"]
