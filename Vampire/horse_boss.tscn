@@ -1,17 +1,19 @@
-[gd_scene load_steps=25 format=3 uid="uid://4lijkratbdyq"]
+[gd_scene load_steps=28 format=3 uid="uid://4lijkratbdyq"]
 
 [ext_resource type="Script" uid="uid://dig0lixqtlfr2" path="res://horse_boss.gd" id="1_q2gsd"]
 [ext_resource type="Texture2D" uid="uid://b7ld1whs224np" path="res://assets/don_juan.png" id="1_xaia4"]
 [ext_resource type="Texture2D" uid="uid://vvpf835fwu47" path="res://Untitled copy.png" id="2_idle"]
-[ext_resource type="Script" path="res://scripts/health.gd" id="2_v6dql"]
+[ext_resource type="Script" uid="uid://j80du1dkomvn" path="res://scripts/health.gd" id="2_v6dql"]
 [ext_resource type="Script" uid="uid://co334q8xauedt" path="res://boss_state_machine.gd" id="4_q3siq"]
 [ext_resource type="Script" uid="uid://b4t64my1sdkq6" path="res://boss_state_idle.gd" id="5_q3siq"]
 [ext_resource type="Script" uid="uid://c8uw2vkar6okl" path="res://boss_state_chase.gd" id="6_etjxj"]
+[ext_resource type="Script" uid="uid://byqyya5bumf1j" path="res://boss_interactions.gd" id="6_nqpnl"]
 [ext_resource type="Script" uid="uid://bihn0ne8lh83q" path="res://boss_state_backoff.gd" id="7_bnonc"]
 [ext_resource type="Script" uid="uid://b3gt0bdctfqc1" path="res://boss_state_windup_charge.gd" id="8_u34bu"]
 [ext_resource type="Script" uid="uid://dibssxs80ympc" path="res://boss_state_charge.gd" id="9_etjxj"]
 [ext_resource type="Script" uid="uid://ckg6yk0q6nep3" path="res://boss_state_melee.gd" id="10_uiv8r"]
 [ext_resource type="Script" uid="uid://cyx3l4kqwhum" path="res://boss_state_recover.gd" id="11_ywwff"]
+[ext_resource type="Script" uid="uid://cg3d22mlbu5y6" path="res://scripts/collision_shape_2d_2.gd" id="12_bnonc"]
 
 [sub_resource type="Animation" id="Animation_0bnu1"]
 length = 0.001
@@ -176,6 +178,10 @@ height = 39.81099
 radius = 19.0
 height = 64.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u34bu"]
+radius = 21.997658
+height = 70.02175
+
 [node name="HorseBoss" type="CharacterBody2D"]
 position = Vector2(-24, -68)
 collision_layer = 2
@@ -202,6 +208,7 @@ shape = SubResource("CapsuleShape2D_0bnu1")
 script = ExtResource("2_v6dql")
 
 [node name="Hitboxes" type="Node2D" parent="."]
+script = ExtResource("6_nqpnl")
 
 [node name="MeleeHurtBox" type="Area2D" parent="Hitboxes"]
 monitoring = false
@@ -242,5 +249,12 @@ script = ExtResource("10_uiv8r")
 
 [node name="recover" type="Node" parent="StateMachine"]
 script = ExtResource("11_ywwff")
+
+[node name="CollisionShape2D2" type="Area2D" parent="."]
+script = ExtResource("12_bnonc")
+
+[node name="EnemyHitBox" type="CollisionShape2D" parent="CollisionShape2D2"]
+rotation = -1.5854027
+shape = SubResource("CapsuleShape2D_u34bu")
 
 [connection signal="area_entered" from="Hitboxes/ChargeHurtbox" to="." method="_on_charge_hurtbox_area_entered"]
