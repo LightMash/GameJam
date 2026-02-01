@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://56rl1r02norn" path="res://Utility/enemy_spawner.tscn" id="3_gldc4"]
 [ext_resource type="PackedScene" uid="uid://c2rb1wlrsc2gf" path="res://ui/game_screen.tscn" id="4_0cso3"]
 [ext_resource type="PackedScene" uid="uid://burqki1cratep" path="res://scenes/components/night_cycle_component.tscn" id="5_2klcf"]
-[ext_resource type="PackedScene" uid="uid://4lijkratbdyq" path="res://horse_boss.tscn" id="6_2lpho"]
+[ext_resource type="PackedScene" path="res://horse_boss.tscn" id="6_2lpho"]
 
 [node name="TestSceneMap" type="Node2D"]
 y_sort_enabled = true
