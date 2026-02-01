@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2rb1wlrsc2gf"]
+[gd_scene load_steps=19 format=3 uid="uid://c2rb1wlrsc2gf"]
 
 [ext_resource type="PackedScene" uid="uid://dwrahx6iso5rg" path="res://ui/night_panel.tscn" id="1_g4tl3"]
 [ext_resource type="Theme" uid="uid://dtis1gio6djys" path="res://ui/Ressources/Themes & Stylebox/game_ui_theme.tres" id="1_sp4y4"]
 [ext_resource type="Texture2D" uid="uid://dum0nb2skgovr" path="res://ui/aaaererggh.png" id="3_vb34k"]
 [ext_resource type="Script" uid="uid://xdnjalabn0h3" path="res://ui/dice_roll.gd" id="4_bethk"]
+[ext_resource type="Texture2D" uid="uid://7nu0y41qus86" path="res://assets/dice_sheet.png" id="5_n4oob"]
+[ext_resource type="Script" uid="uid://mrj6koxr2e43" path="res://ui/dice_faces.gd" id="6_edptm"]
 
 [sub_resource type="Animation" id="Animation_n4oob"]
 length = 0.001
@@ -41,6 +43,150 @@ _data = {
 &"dice": SubResource("Animation_bethk")
 }
 
+[sub_resource type="Animation" id="Animation_edptm"]
+resource_name = "dice_face"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2i(0, 4), Vector2i(5, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_y1pwo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_taei7"]
+resource_name = "dice_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_xlpkw"]
+resource_name = "dice_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(2, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_3ku01"]
+resource_name = "dice_4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(3, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_cg7ft"]
+resource_name = "dice_5"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(4, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_iou14"]
+resource_name = "dice_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_2u1xg"]
+resource_name = "dice_6"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(5, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_taei7"]
+_data = {
+&"RESET": SubResource("Animation_y1pwo"),
+&"dice_1": SubResource("Animation_iou14"),
+&"dice_2": SubResource("Animation_taei7"),
+&"dice_3": SubResource("Animation_xlpkw"),
+&"dice_4": SubResource("Animation_3ku01"),
+&"dice_5": SubResource("Animation_cg7ft"),
+&"dice_6": SubResource("Animation_2u1xg"),
+&"dice_face": SubResource("Animation_edptm")
+}
+
 [node name="GameScreen" type="CanvasLayer"]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -71,7 +217,7 @@ scale = Vector2(5.000001, 5.000001)
 texture = ExtResource("3_vb34k")
 hframes = 13
 vframes = 14
-frame = 65
+frame = 53
 script = ExtResource("4_bethk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/Dice/Sprite2D"]
@@ -79,4 +225,51 @@ libraries = {
 &"": SubResource("AnimationLibrary_edptm")
 }
 
-[node name="Sprite2D2" type="Sprite2D" parent="MarginContainer/VBoxContainer/Dice"]
+[node name="Sprite2D2" type="Sprite2D" parent="MarginContainer/VBoxContainer/Dice/Sprite2D"]
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("5_n4oob")
+hframes = 13
+vframes = 14
+frame = 52
+script = ExtResource("6_edptm")
+
+[node name="animationplayer1" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/Dice/Sprite2D/Sprite2D2"]
+root_node = NodePath("../dice_face")
+libraries = {
+&"": SubResource("AnimationLibrary_taei7")
+}
+
+[node name="animationplayer6" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/Dice/Sprite2D/Sprite2D2"]
+root_node = NodePath("../dice_face")
+libraries = {
+&"": SubResource("AnimationLibrary_taei7")
+}
+
+[node name="animationplayer5" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/Dice/Sprite2D/Sprite2D2"]
+root_node = NodePath("../dice_face")
+libraries = {
+&"": SubResource("AnimationLibrary_taei7")
+}
+
+[node name="animationplayer4" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/Dice/Sprite2D/Sprite2D2"]
+root_node = NodePath("../dice_face")
+libraries = {
+&"": SubResource("AnimationLibrary_taei7")
+}
+
+[node name="animationplayer3" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/Dice/Sprite2D/Sprite2D2"]
+root_node = NodePath("../dice_face")
+libraries = {
+&"": SubResource("AnimationLibrary_taei7")
+}
+
+[node name="animationplayer2" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/Dice/Sprite2D/Sprite2D2"]
+root_node = NodePath("../dice_face")
+libraries = {
+&"": SubResource("AnimationLibrary_taei7")
+}
+
+[node name="dice_face" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/Dice/Sprite2D/Sprite2D2"]
+libraries = {
+&"": SubResource("AnimationLibrary_taei7")
+}
