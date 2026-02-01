@@ -12,9 +12,9 @@ Label/colors/font_color = Color(0.48917896, 0.4097131, 0.12306147, 1)
 Label/font_sizes/font_size = 20
 Label/fonts/font = ExtResource("2_qwp2v")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ke020"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwp2v"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwp2v"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gj0k"]
 draw_center = false
 
 [sub_resource type="Theme" id="Theme_r8puk"]
@@ -22,8 +22,8 @@ Button/colors/font_color = Color(0.95, 0.83916664, 0.475, 1)
 Button/colors/font_hover_color = Color(0.6, 0.5012, 0.14400001, 1)
 Button/font_sizes/font_size = 20
 Button/fonts/font = ExtResource("3_3gj0k")
-Button/styles/focus = SubResource("StyleBoxEmpty_ke020")
-Button/styles/hover = SubResource("StyleBoxFlat_qwp2v")
+Button/styles/focus = SubResource("StyleBoxEmpty_qwp2v")
+Button/styles/hover = SubResource("StyleBoxFlat_3gj0k")
 Button/styles/normal = ExtResource("4_3gj0k")
 Button/styles/pressed = ExtResource("3_qwp2v")
 

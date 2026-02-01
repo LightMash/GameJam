@@ -120,6 +120,9 @@ func _ready() -> void:
 		attack_hitbox.area_entered.connect(_on_attack_hitbox_area_entered)
 
 func _process(delta: float) -> void:
+	if not is_inside_tree():
+		return
+		
 	_refresh_target(false)
 	_update_cooldowns(delta)
 	_update_target_velocity_estimate(delta)
@@ -131,6 +134,9 @@ func _process(delta: float) -> void:
 		state_machine.Update(delta)
 
 func _physics_process(delta: float) -> void:
+	if not is_inside_tree():
+		return
+		
 	if state_machine:
 		state_machine.PhysicsUpdate(delta)
 
@@ -386,21 +392,25 @@ func _play_if_exists(anim_name: String) -> void:
 # Boss -> Player damage
 # -------------------------
 func _deal_damage_to_player(player_area: Area2D, amount: int) -> void:
-	if not player_area.is_in_group("player_hitbox"):
+	if not is_instance_valid(player_area) or not player_area.is_in_group("player_hitbox"):
 		return
 
 	# Most projects put TakeDamage() on the player hitbox Area2D (like your monster does)
 	if player_area.has_method("TakeDamage"):
 		for i in range(amount):
+			if not is_instance_valid(player_area):
+				return
 			player_area.TakeDamage()
 		return
 
 	# Fallback: climb to parent that has TakeDamage()
 	var n: Node = player_area
-	while n != null and not n.has_method("TakeDamage"):
+	while is_instance_valid(n) and not n.has_method("TakeDamage"):
 		n = n.get_parent()
-	if n != null:
+	if is_instance_valid(n):
 		for i in range(amount):
+			if not is_instance_valid(n):
+				return
 			n.call("TakeDamage")
 
 func _handle_melee_contact(area: Area2D) -> void:

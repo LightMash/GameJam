@@ -19,7 +19,6 @@ func Enter() -> void:
 		dir = boss.dir_to_target()
 
 	boss.play_attack_dash(dir)
-	await get_tree().create_timer(1).timeout
 
 func Process(delta: float) -> BossState:
 	t -= delta

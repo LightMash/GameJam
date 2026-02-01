@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://8wpv3ugu3krf"]
+
+[ext_resource type="Texture2D" uid="uid://ckeprbdpws4bl" path="res://assets/Story2.jpeg" id="1_8ljoy"]
+[ext_resource type="Script" uid="uid://dxu8klpc12f7m" path="res://scenes/story_2.gd" id="1_t246m"]
+[ext_resource type="FontVariation" uid="uid://b7m70ts8yfcru" path="res://ui/Ressources/font/ui_font.tres" id="2_t246m"]
+[ext_resource type="StyleBox" uid="uid://cwu67ajxb4kob" path="res://ui/Ressources/Themes & Stylebox/normal_button.tres" id="3_8gmmd"]
+[ext_resource type="StyleBox" uid="uid://de61c7bh14sgf" path="res://ui/Ressources/Themes & Stylebox/hover_button.tres" id="4_d27lt"]
+[ext_resource type="FontVariation" uid="uid://bosa6q7pw5auk" path="res://ui/Ressources/font/ui_font_label.tres" id="6_8gmmd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ke020"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwp2v"]
+draw_center = false
+
+[sub_resource type="Theme" id="Theme_q2tpe"]
+Button/colors/font_color = Color(0.95, 0.83916664, 0.475, 1)
+Button/colors/font_hover_color = Color(0.6, 0.5012, 0.14400001, 1)
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("2_t246m")
+Button/styles/focus = SubResource("StyleBoxEmpty_ke020")
+Button/styles/hover = SubResource("StyleBoxFlat_qwp2v")
+Button/styles/normal = ExtResource("3_8gmmd")
+Button/styles/pressed = ExtResource("4_d27lt")
+
+[sub_resource type="Theme" id="Theme_d27lt"]
+Label/fonts/font = ExtResource("6_8gmmd")
+
+[node name="Story2" type="CanvasLayer"]
+script = ExtResource("1_t246m")
+
+[node name="Story2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Story2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8ljoy")
+
+[node name="Container" type="PanelContainer" parent="Story2/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -704.0
+offset_top = -319.0
+offset_right = -616.0
+offset_bottom = -279.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(8, 8)
+
+[node name="returnToTitleScreen" type="Button" parent="Story2/NinePatchRect/Container"]
+layout_mode = 2
+theme = SubResource("Theme_q2tpe")
+text = "Next
+"
+
+[node name="PanelContainer" type="PanelContainer" parent="Story2/NinePatchRect"]
+layout_mode = 0
+offset_left = 109.0
+offset_right = 381.0
+offset_bottom = 40.0
+scale = Vector2(8, 8)
+
+[node name="Label" type="Label" parent="Story2/NinePatchRect/PanelContainer"]
+layout_mode = 2
+theme = SubResource("Theme_d27lt")
+text = "Almost there....."
+
+[connection signal="pressed" from="Story2/NinePatchRect/Container/returnToTitleScreen" to="." method="_on_return_to_title_screen_pressed"]
