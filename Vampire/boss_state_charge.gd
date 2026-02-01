@@ -1,4 +1,4 @@
-class_name BossCharge
+class_name BossStateCharge
 extends BossState
 
 @export var charge_time: float = 0.95
