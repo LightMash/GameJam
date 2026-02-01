@@ -9,17 +9,32 @@ extends Sprite2D   # THIS is the rolling dice sprite
 @onready var dice4 = $"../D4"
 @onready var dice5 = $"../D5"
 @onready var dice6 = $"../D6"
+@onready var huntingSign = $"../Hunting"
+@onready var huntedSign = $"../Hunted"
 
 var last_day := -1
 var dice_result := 1
 
 func _ready():
 	NightCycleManager.time_tick.connect(_on_time_tick)
+	huntedSign.visible = false
+	huntingSign.visible = false
 
 func _on_time_tick(day: int, hour: int, minute: int):
 	if day != last_day:
 		last_day = day
 		start_dice_roll()
+func turnSignOn(is_hunting: bool):
+	if is_hunting == true :
+		huntingSign.visible = true
+		await get_tree().create_timer(2).timeout
+		huntingSign.visible = false
+	else :
+		huntedSign.visible = true
+		await get_tree().create_timer(2).timeout
+		huntedSign.visible = false
+		
+		
 
 func start_dice_roll():
 	animSprite.visible = true
@@ -41,23 +56,29 @@ func start_dice_roll():
 	if dice_result == 1 :
 		dice1.visible = true
 		gameState.player_is_hunting = false
+		turnSignOn(gameState.player_is_hunting)
 
 	elif dice_result == 2 : 
 		dice2.visible = true
 		gameState.player_is_hunting = true
+		turnSignOn(gameState.player_is_hunting)
 
 	elif dice_result == 3 : 
 		dice3.visible = true
 		gameState.player_is_hunting = false
+		turnSignOn(gameState.player_is_hunting)
 
 	elif dice_result == 4 : 
 		dice4.visible = true
 		gameState.player_is_hunting = true
+		turnSignOn(gameState.player_is_hunting)
 
 	elif dice_result == 5 : 
 		dice5.visible = true
 		gameState.player_is_hunting = false
+		turnSignOn(gameState.player_is_hunting)
 
 	elif dice_result == 6 : 
 		dice6.visible = true
 		gameState.player_is_hunting = true
+		turnSignOn(gameState.player_is_hunting)

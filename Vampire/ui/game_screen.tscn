@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2rb1wlrsc2gf"]
+[gd_scene load_steps=17 format=3 uid="uid://c2rb1wlrsc2gf"]
 
 [ext_resource type="PackedScene" uid="uid://dwrahx6iso5rg" path="res://ui/night_panel.tscn" id="1_g4tl3"]
 [ext_resource type="Theme" uid="uid://dtis1gio6djys" path="res://ui/Ressources/Themes & Stylebox/game_ui_theme.tres" id="1_sp4y4"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://c5o7cgi4lrqbd" path="res://assets/d3.png" id="8_2u1xg"]
 [ext_resource type="Texture2D" uid="uid://mn2gn4swbkof" path="res://assets/d5.png" id="9_cpy8s"]
 [ext_resource type="Texture2D" uid="uid://bdscw771o0vym" path="res://assets/d6.png" id="10_3crdu"]
+[ext_resource type="Texture2D" uid="uid://d2qw6i5dggtp7" path="res://assets/Hunting.png" id="12_2u1xg"]
+[ext_resource type="Texture2D" uid="uid://dvk7vpgpfmp8l" path="res://assets/Hunted.png" id="13_cpy8s"]
 
 [sub_resource type="Animation" id="Animation_n4oob"]
 length = 0.001
@@ -121,3 +123,13 @@ texture = ExtResource("9_cpy8s")
 position = Vector2(-115, 379)
 scale = Vector2(5, 5)
 texture = ExtResource("10_3crdu")
+
+[node name="Hunting" type="Sprite2D" parent="MarginContainer/VBoxContainer/Dice"]
+position = Vector2(-1518.0001, 1077.0001)
+scale = Vector2(16.390623, 16.390623)
+texture = ExtResource("12_2u1xg")
+
+[node name="Hunted" type="Sprite2D" parent="MarginContainer/VBoxContainer/Dice"]
+position = Vector2(-1444, 1126)
+scale = Vector2(15.4875, 15.8125)
+texture = ExtResource("13_cpy8s")

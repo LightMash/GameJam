@@ -89,3 +89,4 @@ emote={
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.09170092, 0.011021171, 0.006117972, 1)
