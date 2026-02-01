@@ -3,15 +3,13 @@ extends BossState
 
 
 @export var charge_time: float = 0.95
-@onready var recover: BossState = $"../recover"
-@onready var gallopingSound = $Galloping
+@onready var recover: BossRecover = $"../recover"
+
 
 var t: float = 0.0
 var dir: Vector2 = Vector2.ZERO
 
 func Enter() -> void:
-	gallopingSound.autoplay = true
-	gallopingSound.play()
 	t = charge_time
 	boss.set_charge_active(true)
 	boss.clear_end_charge_request()
@@ -22,7 +20,6 @@ func Enter() -> void:
 
 	boss.play_attack_dash(dir)
 	await get_tree().create_timer(1).timeout
-	gallopingSound.autoplay = false
 
 func Process(delta: float) -> BossState:
 	t -= delta

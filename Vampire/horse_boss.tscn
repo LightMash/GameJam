@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://co334q8xauedt" path="res://boss_state_machine.gd" id="4_q3siq"]
 [ext_resource type="Script" uid="uid://b4t64my1sdkq6" path="res://boss_state_idle.gd" id="5_q3siq"]
 [ext_resource type="Script" uid="uid://c8uw2vkar6okl" path="res://boss_state_chase.gd" id="6_etjxj"]
-[ext_resource type="Script" uid="uid://byqyya5bumf1j" path="res://boss_interactions.gd" id="6_nqpnl"]
+[ext_resource type="Script" path="res://boss_interactions.gd" id="6_nqpnl"]
 [ext_resource type="Script" uid="uid://bihn0ne8lh83q" path="res://boss_state_backoff.gd" id="7_bnonc"]
 [ext_resource type="Script" uid="uid://b3gt0bdctfqc1" path="res://boss_state_windup_charge.gd" id="8_u34bu"]
 [ext_resource type="Script" uid="uid://dibssxs80ympc" path="res://boss_state_charge.gd" id="9_etjxj"]

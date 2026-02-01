@@ -10,7 +10,6 @@ var t: float = 0.0
 func Enter() -> void:
 	t = recover_time
 	boss.set_charge_active(false)
-	blblbl.play()
 	
 
 func Process(delta: float) -> BossState:
