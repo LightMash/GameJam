@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cq5tj1snjrwne" path="res://scenes/player.tscn" id="2_paxxb"]
 [ext_resource type="PackedScene" uid="uid://56rl1r02norn" path="res://Utility/enemy_spawner.tscn" id="3_gldc4"]
 [ext_resource type="PackedScene" path="res://ui/game_screen.tscn" id="4_0cso3"]
+[ext_resource type="PackedScene" path="res://scenes/components/night_cycle_component.tscn" id="5_2klcf"]
 
 [node name="TestSceneMap" type="Node2D"]
 metadata/_edit_lock_ = true
