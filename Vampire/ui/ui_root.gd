@@ -13,7 +13,9 @@ func _ready():
 
 func hide_all():
 	for child in get_children():
-		child.visible = false
+		# This checks if the node is a UI element or sprite
+		if child is CanvasItem: 
+			child.visible = false
 
 func show_start_menu():
 	hide_all()

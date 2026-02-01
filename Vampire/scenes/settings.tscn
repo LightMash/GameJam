@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://ceig5wtqe5ns4"]
+[gd_scene load_steps=14 format=3 uid="uid://ceig5wtqe5ns4"]
 
 [ext_resource type="StyleBox" uid="uid://de61c7bh14sgf" path="res://ui/Ressources/Themes & Stylebox/hover_button.tres" id="1_6wm04"]
-[ext_resource type="Script" uid="uid://ijgoji5o2r7i" path="res://scripts/settings.gd" id="1_f4mfi"]
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_f4mfi"]
 [ext_resource type="FontVariation" uid="uid://b7m70ts8yfcru" path="res://ui/Ressources/font/ui_font.tres" id="2_es4n0"]
 [ext_resource type="StyleBox" uid="uid://cwu67ajxb4kob" path="res://ui/Ressources/Themes & Stylebox/normal_button.tres" id="2_f4mfi"]
 [ext_resource type="Texture2D" uid="uid://c4wouivjvof4f" path="res://assets/SettingsScreen.png" id="5_gis3k"]
+[ext_resource type="AudioStream" uid="uid://dv14nt17442nx" path="res://scenes/hunting.wav" id="6_gis3k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4mfi"]
 
@@ -126,6 +127,11 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+
+[node name="menu_music" type="AudioStreamPlayer" parent="Settings/SettingsBackground/SettingsPanel/VBoxContainer/MusicVBoxContainer/MusicSlider"]
+stream = ExtResource("6_gis3k")
+autoplay = true
+bus = &"Music"
 
 [node name="SFXVBoxContainer" type="BoxContainer" parent="Settings/SettingsBackground/SettingsPanel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsgft6iyfty7y"]
+
+[ext_resource type="Script" uid="uid://bapd22drhoqie" path="res://volume_slider.gd" id="1_1snrh"]
+[ext_resource type="AudioStream" uid="uid://dv14nt17442nx" path="res://scenes/hunting.wav" id="2_4v2uo"]
+
+[node name="volume_slider" type="HSlider"]
+offset_right = 8.0
+offset_bottom = 16.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_1snrh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4v2uo")
+autoplay = true
