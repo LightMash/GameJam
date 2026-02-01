@@ -4,8 +4,8 @@
 [ext_resource type="FontFile" uid="uid://drx0plq10ud70" path="res://ui/Ressources/font/PublicPixel-rv0pA.ttf" id="2_6qk7i"]
 [ext_resource type="StyleBox" uid="uid://de61c7bh14sgf" path="res://ui/Ressources/Themes & Stylebox/hover_button.tres" id="2_f6o6b"]
 [ext_resource type="StyleBox" uid="uid://cwu67ajxb4kob" path="res://ui/Ressources/Themes & Stylebox/normal_button.tres" id="3_6qk7i"]
-[ext_resource type="Texture2D" uid="uid://b0jg0o86gnara" path="res://assets/StartMenuBackground.png" id="4_f6o6b"]
 [ext_resource type="FontVariation" uid="uid://b7m70ts8yfcru" path="res://ui/Ressources/font/ui_font.tres" id="5_s6kls"]
+[ext_resource type="Texture2D" uid="uid://dolvop2s11sy6" path="res://assets/mainmenufinalscreen.png" id="6_s6kls"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6o6b"]
 
@@ -44,7 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_f6o6b")
+texture = ExtResource("6_s6kls")
 
 [node name="MenuPanel" type="NinePatchRect" parent="StartMenu/StartMenuBackground"]
 layout_mode = 1

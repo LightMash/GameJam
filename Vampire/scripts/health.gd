@@ -1,6 +1,6 @@
 class_name Health extends Node
 
-@export var max_hp: int = 20
+@export var max_hp: int = 10
 var hp: int
 
 signal HPChanged(current: int, max: int)
@@ -22,9 +22,13 @@ func TakeDamage(amount:int) -> void:
 	
 	if hp <= 0:
 		Died.emit()
+		end_game()
 		return
 	_start_iframes()
 func _start_iframes()-> void:
 	invincible = true
 	await get_tree().create_timer(invincible_time).timeout
 	invincible = false
+
+func end_game():
+	get_tree().change_scene_to_file("res://scenes/endGame.tscn")
