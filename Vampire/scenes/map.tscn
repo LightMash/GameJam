@@ -27,4 +27,3 @@ position = Vector2(149, 72)
 [node name="EnemySpawner" parent="." instance=ExtResource("3_gldc4")]
 
 [node name="GameScreen" parent="." instance=ExtResource("4_0cso3")]
-visible = false
