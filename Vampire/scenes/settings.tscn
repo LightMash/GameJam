@@ -1,21 +1,31 @@
-[gd_scene load_steps=10 format=3 uid="uid://ceig5wtqe5ns4"]
+[gd_scene load_steps=13 format=3 uid="uid://ceig5wtqe5ns4"]
 
-[ext_resource type="Texture2D" uid="uid://bf7td0j51cogu" path="res://assets/scifi_start_menu_test.jpg" id="1_5p8wc"]
 [ext_resource type="StyleBox" uid="uid://de61c7bh14sgf" path="res://ui/Ressources/Themes & Stylebox/hover_button.tres" id="1_6wm04"]
 [ext_resource type="Script" uid="uid://ijgoji5o2r7i" path="res://scripts/settings.gd" id="1_f4mfi"]
+[ext_resource type="FontVariation" uid="uid://b7m70ts8yfcru" path="res://ui/Ressources/font/ui_font.tres" id="2_es4n0"]
 [ext_resource type="StyleBox" uid="uid://cwu67ajxb4kob" path="res://ui/Ressources/Themes & Stylebox/normal_button.tres" id="2_f4mfi"]
+[ext_resource type="Texture2D" uid="uid://c4wouivjvof4f" path="res://assets/SettingsScreen.png" id="5_gis3k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4mfi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_es4n0"]
 
 [sub_resource type="Theme" id="Theme_gis3k"]
+Button/colors/font_color = Color(0.7372549, 0.27058825, 0.31764707, 1)
 Button/font_sizes/font_size = 30
-Button/fonts/font = null
+Button/fonts/font = ExtResource("2_es4n0")
 Button/styles/focus = SubResource("StyleBoxEmpty_f4mfi")
 Button/styles/hover = ExtResource("1_6wm04")
 Button/styles/normal = ExtResource("2_f4mfi")
 Button/styles/pressed = SubResource("StyleBoxEmpty_es4n0")
+Label/colors/font_color = Color(0.30980393, 0.13333334, 0.078431375, 1)
+Label/font_sizes/font_size = 30
+Label/fonts/font = ExtResource("2_es4n0")
+
+[sub_resource type="Theme" id="Theme_am25x"]
+Label/colors/font_color = Color(0.7372549, 0.27058825, 0.31764707, 1)
+
+[sub_resource type="Theme" id="Theme_es4n0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gis3k"]
 
@@ -45,21 +55,46 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_5p8wc")
+texture = ExtResource("5_gis3k")
 
 [node name="SettingsPanel" type="NinePatchRect" parent="Settings/SettingsBackground"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.50100005
-anchor_top = 0.41900003
-anchor_right = 0.50100005
-anchor_bottom = 0.41900003
-offset_left = -221.15253
-offset_top = -143.26901
-offset_right = 220.84747
-offset_bottom = 142.73099
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.50024
+offset_top = -142.99998
+offset_right = 269.50024
+offset_bottom = 142.99998
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="SFXLabelShadow" type="Label" parent="Settings/SettingsBackground/SettingsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05009272
+anchor_top = 0.045454547
+anchor_right = 0.05009272
+anchor_bottom = 0.045454547
+offset_left = 87.500244
+offset_top = 162.99998
+offset_right = 177.50024
+offset_bottom = 225.99998
+theme_override_colors/font_color = Color(0.30980393, 0.13333334, 0.078431375, 1)
+text = "SFX
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicLabelShadow" type="Label" parent="Settings/SettingsBackground/SettingsPanel"]
+layout_mode = 0
+offset_left = 83.500244
+offset_top = 71.999985
+offset_right = 233.50024
+offset_bottom = 101.999985
+theme_override_colors/font_color = Color(0.30980393, 0.13333334, 0.078431375, 1)
+text = "Music"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Settings/SettingsBackground/SettingsPanel"]
 layout_mode = 1
@@ -69,47 +104,71 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -182.0
-offset_top = -57.5
+offset_top = -23.628494
 offset_right = 182.0
-offset_bottom = 57.5
+offset_bottom = 23.628494
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_am25x")
 
 [node name="MusicVBoxContainer" type="BoxContainer" parent="Settings/SettingsBackground/SettingsPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="Music" type="Label" parent="Settings/SettingsBackground/SettingsPanel/VBoxContainer/MusicVBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Music"
 
 [node name="MusicSlider" type="HSlider" parent="Settings/SettingsBackground/SettingsPanel/VBoxContainer/MusicVBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="SFXVBoxContainer" type="BoxContainer" parent="Settings/SettingsBackground/SettingsPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="SFX" type="Label" parent="Settings/SettingsBackground/SettingsPanel/VBoxContainer/SFXVBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-text = "SFX    "
+text = "SFX"
+horizontal_alignment = 1
 
 [node name="SFXSLider" type="HSlider" parent="Settings/SettingsBackground/SettingsPanel/VBoxContainer/SFXVBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
+theme = SubResource("Theme_es4n0")
+
+[node name="BackLabel" type="Label" parent="Settings/SettingsBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49800003
+anchor_top = 0.80700004
+anchor_right = 0.49800003
+anchor_bottom = 0.80700004
+offset_left = -64.696045
+offset_top = -16.936035
+offset_right = 55.303955
+offset_bottom = 13.063965
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
 
 [node name="Back" type="Button" parent="Settings/SettingsBackground"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.83400005
+anchor_top = 0.80600005
 anchor_right = 0.5
-anchor_bottom = 0.83400005
-offset_left = -69.0
-offset_top = -15.434021
-offset_right = 72.25
-offset_bottom = 15.565979
+anchor_bottom = 0.80600005
+offset_left = -70.625
+offset_top = -16.288025
+offset_right = 70.625
+offset_bottom = 15.711975
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_83j8s")
