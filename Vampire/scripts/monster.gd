@@ -11,7 +11,11 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2.ZERO
 			return
 
-	var direction: Vector2 = global_position.direction_to(player.global_position) # normalized
+	var direction: Vector2
+	if gameState.player_is_hunting == false :
+		direction = global_position.direction_to(player.global_position)
+	else :
+		direction = player.global_position.direction_to(global_position)
 	velocity = direction * movement_speed
 	move_and_slide()
 

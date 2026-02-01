@@ -1,42 +1,61 @@
-extends Sprite2D
+extends Sprite2D   # THIS is the rolling dice sprite
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var roll_anim: AnimationPlayer = $AnimationPlayer
+@onready var animSprite = $"."
+@onready var dice1 = $"../D1"
+@onready var dice2 = $"../D2"
+@onready var dice3 = $"../D3"
+@onready var dice4 = $"../D4"
+@onready var dice5 = $"../D5"
+@onready var dice6 = $"../D6"
 
 var last_day := -1
 var dice_result := 1
 
-
-func _ready() -> void:
+func _ready():
 	NightCycleManager.time_tick.connect(_on_time_tick)
-	animation_player.animation_finished.connect(_on_animation_finished)
-	
-	# Show initial dice face (face 1)
-	show_dice_face(1)
 
-func _on_time_tick(day: int, hour: int, minute: int) -> void:
-	# Only trigger at the START of a new day
+func _on_time_tick(day: int, hour: int, minute: int):
 	if day != last_day:
 		last_day = day
 		start_dice_roll()
 
-func start_dice_roll() -> void:
-	# Decide the result FIRST
-	dice_result = randi_range(1, 6)
+func start_dice_roll():
+	animSprite.visible = true
+	#turn off all the dices
+	dice1.visible = false
+	dice2.visible = false
+	dice3.visible = false
+	dice4.visible = false
+	dice5.visible = false
+	dice6.visible = false
 	
-	# Play roll animation
-	animation_player.play("dice")
+	dice_result = randi_range(1, 6)
 
-func _on_animation_finished(anim_name: String) -> void:
-	if anim_name == "dice":
-		show_final_dice()
+	roll_anim.play("dice")
+	await get_tree().create_timer(1.2).timeout
+	animSprite.visible = false
 
-func show_final_dice() -> void:
-	# Show the final dice result
-	show_dice_face(dice_result)
+	if dice_result == 1 :
+		dice1.visible = true
+		gameState.player_is_hunting = false
 
-func show_dice_face(face_number: int) -> void:
-	# Based on the animation using row 5 (frame_coords y=5)
-	# Dice faces 1-6 should be in row 5, columns 0-5
-	# For a 13 hframes x 14 vframes spritesheet:
-	# frame = y * hframes + x = 5 * 13 + (face_number - 1)
-	frame = 5 * 13 + (face_number - 1)  # Frames 65-70 for dice 1-6
+	elif dice_result == 2 : 
+		dice2.visible = true
+		gameState.player_is_hunting = true
+
+	elif dice_result == 3 : 
+		dice3.visible = true
+		gameState.player_is_hunting = false
+
+	elif dice_result == 4 : 
+		dice4.visible = true
+		gameState.player_is_hunting = true
+
+	elif dice_result == 5 : 
+		dice5.visible = true
+		gameState.player_is_hunting = false
+
+	elif dice_result == 6 : 
+		dice6.visible = true
+		gameState.player_is_hunting = true
