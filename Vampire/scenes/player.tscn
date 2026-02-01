@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://toegbtl8wq3w"]
+[gd_scene load_steps=41 format=3 uid="uid://toegbtl8wq3w"]
 
 [ext_resource type="Script" uid="uid://d24bq5kd8w1dj" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://c0ylhbv5fsif4" path="res://assets/F0.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://b3n83fc3xdf46" path="res://scenes/projectile.png" id="3_a8ls1"]
 [ext_resource type="Script" uid="uid://cqf4kuet7cer5" path="res://scripts/player_state_machine.gd" id="3_qlg0r"]
 [ext_resource type="Script" uid="uid://dpvdv8yhlma7w" path="res://scripts/state_idle.gd" id="4_dqkch"]
 [ext_resource type="Script" uid="uid://bakim3fl7ercf" path="res://scripts/state_walk.gd" id="5_qlg0r"]
@@ -15,6 +16,221 @@
 [ext_resource type="Script" uid="uid://mqqakq8uyuqn" path="res://scripts/playerInteractionHost.gd" id="9_y4r1p"]
 [ext_resource type="AudioStream" uid="uid://bx68x4vdv6af7" path="res://homicide.garageband - 2026-02-01, 07.11.wav" id="11_oprun"]
 [ext_resource type="Texture2D" uid="uid://dasqpp7y7f12m" path="res://assets/Final.png" id="12_3v2ag"]
+
+[sub_resource type="Animation" id="Animation_4r5pv"]
+resource_name = "swoosh_up"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2i(0, 0), Vector2i(5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -28), Vector2(0, -28)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath(".:show_behind_parent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_60mlk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -28)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:show_behind_parent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_i4ail"]
+resource_name = "swoosh_side"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2i(0, 1), Vector2i(5, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(31, 0), Vector2(31, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:show_behind_parent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_a38lo"]
+resource_name = "swoosh_down"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2i(0, 2), Vector2i(5, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 30), Vector2(0, 30)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:show_behind_parent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ni07"]
+_data = {
+&"RESET": SubResource("Animation_60mlk"),
+&"swoosh_down": SubResource("Animation_a38lo"),
+&"swoosh_side": SubResource("Animation_i4ail"),
+&"swoosh_up": SubResource("Animation_4r5pv")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
 radius = 7.071068
@@ -268,8 +484,8 @@ func _ready():
 	add_to_group(\"player_hurtbox\")
 "
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ur7pv"]
-radius = 10.049875
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a8ls1"]
+height = 40.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
 radius = 5.0
@@ -285,6 +501,17 @@ texture = ExtResource("2_qlg0r")
 hframes = 13
 vframes = 14
 frame = 13
+
+[node name="swoosheffect" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(0, -28)
+texture = ExtResource("3_a8ls1")
+hframes = 6
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D/swoosheffect"]
+libraries = {
+&"": SubResource("AnimationLibrary_4ni07")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 15)
@@ -319,7 +546,6 @@ script = ExtResource("7_y4r1p")
 
 [node name="dash_sound" type="AudioStreamPlayer" parent="StateMachine/dash"]
 stream = ExtResource("9_oprun")
-bus = &"SFX"
 
 [node name="emote" type="Node" parent="StateMachine"]
 script = ExtResource("8_d2wvv")
@@ -339,8 +565,8 @@ monitoring = true
 script = SubResource("GDScript_d2wvv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HurtBox"]
-position = Vector2(25, 1)
-shape = SubResource("CircleShape2D_ur7pv")
+position = Vector2(25, 12)
+shape = SubResource("CapsuleShape2D_a8ls1")
 disabled = true
 debug_color = Color(0.99215686, 0, 0, 0.41960785)
 

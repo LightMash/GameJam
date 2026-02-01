@@ -18,8 +18,12 @@ var attacking: bool = false
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var attack_sound = $attack_sound
 @onready var attack_anim: AnimationPlayer = get_node_or_null("../../Sprite2D/AttackEffectSprite/AnimationPlayer")
+@onready var animSw: AnimationPlayer = $"../../Sprite2D/swoosheffect/AnimationPlayer"
+@onready var swooshEffect = $"../../Sprite2D/swoosheffect"
 
 func Enter() -> void:
+	
+	
 	attacking = true
 	$"../../Interactions/HurtBox/CollisionShape2D".disabled = false
 
@@ -28,6 +32,7 @@ func Enter() -> void:
 		player.setFacingToMouse()
 
 	player.UpdateAnimation("attack")
+	animSw.play("swoosh_" + player.AnimDirection())
 	attack_sound.play()
 
 	if not animation_player.animation_finished.is_connected(EndAttack):
