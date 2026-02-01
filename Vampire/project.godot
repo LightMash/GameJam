@@ -75,9 +75,14 @@ emote={
 
 [layer_names]
 
+2d_render/layer_1="player"
+2d_render/layer_2="playerAttack"
+2d_render/layer_9="enemy"
+2d_render/layer_10="enemyAttack"
 2d_physics/layer_1="player"
-2d_physics/layer_2="PlayerHurt"
+2d_physics/layer_2="PlayerAttack"
 2d_physics/layer_9="Enemy"
+2d_physics/layer_10="EnemyAttack"
 
 [rendering]
 
