@@ -246,6 +246,7 @@ texture = ExtResource("7_ow828")
 0:0/animation_frame_1/duration = 0.2
 0:0/animation_frame_2/duration = 0.2
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.7095852, -1.8795242, 3.01713, -2.1762905, 3.709587, 4.847193, -5.0944977, 4.847193)
 
 [resource]
 physics_layer_0/collision_layer = 1
