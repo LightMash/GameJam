@@ -11,14 +11,14 @@ var attacking: bool = false
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var hurt_box: HurtBox = $"../../Interactions/HurtBox"
 
-# Optional nodes (won't crash if you don't have them)
-@export var attack_sound: AudioStream
+
 @onready var attack_anim: AnimationPlayer = get_node_or_null("../../Sprite2D/AttackEffectSprite/AnimationPlayer")
-@onready var audio: AudioStreamPlayer2D = get_node_or_null("../../Audio/AudioStreamPlayer2D")
+
 
 func Enter() -> void:
 	attacking = true
 	hurt_box.monitoring = false
+	$"../../Interactions/HurtBox/CollisionShape2D".disabled = false
 
 	# Attack faces cursor
 	player.setFacingToMouse()
@@ -30,10 +30,7 @@ func Enter() -> void:
 	if attack_anim:
 		attack_anim.play("attack_" + player.AnimDirection())
 
-	if audio and attack_sound:
-		audio.stream = attack_sound
-		audio.pitch_scale = randf_range(0.9, 1.1)
-		audio.play()
+
 
 	await get_tree().create_timer(0.075).timeout
 	if not attacking:
@@ -45,6 +42,7 @@ func Exit() -> void:
 		animation_player.animation_finished.disconnect(EndAttack)
 	attacking = false
 	hurt_box.monitoring = false
+	$"../../Interactions/HurtBox/CollisionShape2D".disabled = true
 
 func Process(_delta: float) -> State:
 	# Slowdown line removed (decelerate_speed is 0 anyway)
