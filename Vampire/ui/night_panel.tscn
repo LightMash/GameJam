@@ -50,4 +50,4 @@ theme_override_constants/margin_bottom = 3
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"NightLabel"
-text = "00:00"
+text = "00h00"
