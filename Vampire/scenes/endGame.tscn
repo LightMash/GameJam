@@ -1,8 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://347evsmgj6kd"]
+[gd_scene load_steps=13 format=3 uid="uid://drx8wyea00dyq"]
 
 [ext_resource type="Texture2D" uid="uid://befptvprgfu0j" path="res://assets/EndGamePage.png" id="1_lr6yj"]
+[ext_resource type="Script" uid="uid://bhsw6b7irukmh" path="res://scripts/endscreen.gd" id="1_paner"]
+[ext_resource type="StyleBox" uid="uid://de61c7bh14sgf" path="res://ui/Ressources/Themes & Stylebox/hover_button.tres" id="2_uhhdw"]
+[ext_resource type="FontVariation" uid="uid://bosa6q7pw5auk" path="res://ui/Ressources/font/ui_font_label.tres" id="3_k74cg"]
+[ext_resource type="FontVariation" uid="uid://b7m70ts8yfcru" path="res://ui/Ressources/font/ui_font.tres" id="5_8acc1"]
+[ext_resource type="StyleBox" uid="uid://cwu67ajxb4kob" path="res://ui/Ressources/Themes & Stylebox/normal_button.tres" id="6_sqilq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3isch"]
+bg_color = Color(0.9137255, 0.827451, 0.68235296, 1)
+border_width_bottom = 4
+border_color = Color(0.6219146, 0.49479544, 0.32838988, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hduw"]
+bg_color = Color(0.8745098, 0.7607843, 0.6156863, 1)
+
+[sub_resource type="Theme" id="Theme_2cvoi"]
+Button/styles/focus = ExtResource("2_uhhdw")
+Button/styles/hover = SubResource("StyleBoxFlat_3isch")
+Button/styles/normal = SubResource("StyleBoxFlat_0hduw")
+Label/fonts/font = ExtResource("3_k74cg")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ke020"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwp2v"]
+draw_center = false
+
+[sub_resource type="Theme" id="Theme_sqjoj"]
+Button/colors/font_color = Color(0.95, 0.83916664, 0.475, 1)
+Button/colors/font_hover_color = Color(0.6, 0.5012, 0.14400001, 1)
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("5_8acc1")
+Button/styles/focus = SubResource("StyleBoxEmpty_ke020")
+Button/styles/hover = SubResource("StyleBoxFlat_qwp2v")
+Button/styles/normal = ExtResource("6_sqilq")
+Button/styles/pressed = ExtResource("2_uhhdw")
 
 [node name="EndGame" type="CanvasLayer"]
+script = ExtResource("1_paner")
 
 [node name="EndGame" type="Control" parent="."]
 layout_mode = 3
@@ -11,6 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_2cvoi")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="EndGame"]
 layout_mode = 1
@@ -20,3 +61,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_lr6yj")
+
+[node name="returnToTitleScreen" type="Button" parent="EndGame/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41900003
+anchor_top = 0.18100001
+anchor_right = 0.41900003
+anchor_bottom = 0.18100001
+offset_left = -661.68805
+offset_top = -103.28801
+offset_right = -179.68805
+offset_bottom = -41.28801
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme = SubResource("Theme_sqjoj")
+text = "Return to title screen"
+
+[connection signal="pressed" from="EndGame/NinePatchRect/returnToTitleScreen" to="." method="_on_return_to_title_screen_pressed"]
