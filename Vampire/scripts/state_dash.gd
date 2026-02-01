@@ -3,6 +3,7 @@ class_name State_Dash extends State
 @export var dash_speed: float = 200.0
 @export var dash_duration: float = 0.7
 @export var dash_cooldown: float = 3.5
+@onready var hit_box: Area2D = $"../../Interactions/HitBox"
 
 @onready var idle: State_Idle = $"../idle"
 @onready var walk: State = $"../walk"
@@ -20,6 +21,10 @@ var can_dash: bool = true
 func Enter() -> void:
 	if not can_dash:
 		return
+		
+	for c in hit_box.get_children():
+		if c is CollisionShape2D or c is CollisionPolygon2D:
+			c.set_deferred("disabled", true)
 
 	player.set_collision_layer_value(1,false)
 	player.set_collision_layer_value(3,true)
@@ -46,6 +51,10 @@ func Enter() -> void:
 	_start_cooldown()
 
 func Exit() -> void:
+	
+	for c in hit_box.get_children():
+		if c is CollisionShape2D or c is CollisionPolygon2D:
+			c.set_deferred("disabled", false)
 	player.velocity = Vector2.ZERO
 
 	if is_instance_valid(hurt_box):
