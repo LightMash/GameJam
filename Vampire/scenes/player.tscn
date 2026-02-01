@@ -283,7 +283,7 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
+zoom = Vector2(8, 8)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_qlg0r")
