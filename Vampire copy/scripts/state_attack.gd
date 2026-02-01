@@ -9,7 +9,6 @@ var attacking: bool = false
 @onready var walk: State = $"../walk"
 @onready var idle: State = $"../idle"
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
-@onready var hurt_box: HurtBox = $"../../Interactions/HurtBox"
 
 
 @onready var attack_anim: AnimationPlayer = get_node_or_null("../../Sprite2D/AttackEffectSprite/AnimationPlayer")
@@ -17,7 +16,6 @@ var attacking: bool = false
 
 func Enter() -> void:
 	attacking = true
-	hurt_box.monitoring = false
 	$"../../Interactions/HurtBox/CollisionShape2D".disabled = false
 
 	# Attack faces cursor
@@ -35,13 +33,11 @@ func Enter() -> void:
 	await get_tree().create_timer(0.075).timeout
 	if not attacking:
 		return
-	hurt_box.monitoring = true
 
 func Exit() -> void:
 	if animation_player.animation_finished.is_connected(EndAttack):
 		animation_player.animation_finished.disconnect(EndAttack)
 	attacking = false
-	hurt_box.monitoring = false
 	$"../../Interactions/HurtBox/CollisionShape2D".disabled = true
 
 func Process(_delta: float) -> State:

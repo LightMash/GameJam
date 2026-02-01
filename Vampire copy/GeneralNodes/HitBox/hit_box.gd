@@ -1,8 +1,7 @@
-class_name HitBox
+class_name HitBoxPlayer
 extends Area2D
+func _ready():
+	add_to_group("player_hitbox")
 
-signal Damaged(damage: int)
-
-func TakeDamage(damage: int) -> void:
-	print("Enemy took damage:", damage)
-	Damaged.emit(damage)
+func TakeDamage() -> void:
+	get_parent().get_parent().TakeDamage()

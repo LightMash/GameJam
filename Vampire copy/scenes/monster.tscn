@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://2cdbny4ycnq8"]
+[gd_scene load_steps=14 format=3 uid="uid://2cdbny4ycnq8"]
 
 [ext_resource type="Script" uid="uid://btqpf0asflpyv" path="res://scripts/monster.gd" id="1_uwnm8"]
 [ext_resource type="Texture2D" uid="uid://ctre1ajq8t0by" path="res://assets/Vampire32_copy_copy.png" id="2_1cbnp"]
 [ext_resource type="Script" uid="uid://dr3yrvs1xgpk2" path="res://scenes/monster_state_machine.gd" id="3_jlss8"]
 [ext_resource type="Script" uid="uid://bvenwstv20b8q" path="res://scenes/monster_walk_state.gd" id="4_jlss8"]
+[ext_resource type="Script" uid="uid://cg3d22mlbu5y6" path="res://scripts/collision_shape_2d_2.gd" id="5_gp4s5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1cbnp"]
 radius = 8.0
@@ -36,7 +37,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2i(0, 0), Vector2i(6, 0)]
+"values": [Vector2i(0, 0), Vector2i(5, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_gp4s5"]
@@ -68,7 +69,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2i(0, 2), Vector2i(6, 2)]
+"values": [Vector2i(0, 2), Vector2i(5, 2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v8ewj"]
@@ -79,11 +80,11 @@ _data = {
 &"walk_up": SubResource("Animation_gdl1p")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yce20"]
-radius = 12.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_jlss8"]
+radius = 8.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fttm7"]
-radius = 7.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_gp4s5"]
+radius = 8.0
 
 [node name="Monster" type="CharacterBody2D"]
 motion_mode = 1
@@ -109,3 +110,17 @@ script = ExtResource("3_jlss8")
 
 [node name="walk" type="Node" parent="StateMachine"]
 script = ExtResource("4_jlss8")
+
+[node name="Area2DAttackHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DAttackHitbox"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_jlss8")
+
+[node name="CollisionShape2D2" type="Area2D" parent="."]
+script = ExtResource("5_gp4s5")
+
+[node name="EnemyHitBox" type="CollisionShape2D" parent="CollisionShape2D2"]
+shape = SubResource("CircleShape2D_gp4s5")
+
+[connection signal="area_entered" from="Area2DAttackHitbox" to="." method="_on_area_2d_attack_hitbox_area_entered"]

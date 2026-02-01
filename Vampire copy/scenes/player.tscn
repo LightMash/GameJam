@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cq5tj1snjrwne"]
+[gd_scene load_steps=32 format=3 uid="uid://toegbtl8wq3w"]
 
 [ext_resource type="Script" uid="uid://d24bq5kd8w1dj" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://c0ylhbv5fsif4" path="res://assets/F0.png" id="2_qlg0r"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://dm87e08dht7ox" path="res://scripts/state_dash.gd" id="7_y4r1p"]
 [ext_resource type="Script" uid="uid://c43bfydqelsvx" path="res://scenes/emote.gd" id="8_d2wvv"]
 [ext_resource type="Script" uid="uid://mqqakq8uyuqn" path="res://scripts/playerInteractionHost.gd" id="9_y4r1p"]
-[ext_resource type="Script" uid="uid://j80du1dkomvn" path="res://scripts/health.gd" id="12_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://dasqpp7y7f12m" path="res://assets/Final.png" id="12_3v2ag"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuyoq"]
 radius = 7.071068
@@ -257,13 +257,23 @@ _data = {
 &"walk_up": SubResource("Animation_3v2ag")
 }
 
+[sub_resource type="GDScript" id="GDScript_d2wvv"]
+script/source = "class_name HurtBox
+extends Area2D
+
+func _ready():
+	add_to_group(\"player_hurtbox\")
+"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ur7pv"]
+radius = 9.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y4r1p"]
 radius = 5.0
 height = 26.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+y_sort_enabled = true
 position = Vector2(0, -20)
 script = ExtResource("1_qhqgy")
 
@@ -309,25 +319,70 @@ script = ExtResource("9_y4r1p")
 
 [node name="HurtBox" parent="Interactions" instance=ExtResource("6_fjrip")]
 position = Vector2(-25, 14)
-collision_layer = 4
-collision_mask = 2
+collision_layer = 2
+collision_mask = 1
 monitoring = true
-damage = 1
+script = SubResource("GDScript_d2wvv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HurtBox"]
-position = Vector2(-6, 1)
+position = Vector2(25, 1)
 shape = SubResource("CircleShape2D_ur7pv")
 disabled = true
 debug_color = Color(0.99215686, 0, 0, 0.41960785)
 
 [node name="HitBox" parent="Interactions" instance=ExtResource("7_smehm")]
-collision_layer = 2
-collision_mask = 4
+collision_layer = 3
+collision_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/HitBox"]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_y4r1p")
 debug_color = Color(0, 0.63427913, 0.4345184, 0.41960785)
 
-[node name="Health" type="Node" parent="."]
-script = ExtResource("12_3v2ag")
+[node name="HealthBar" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HealthBar"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Heart" type="TextureRect" parent="HealthBar/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HealthBar/HBoxContainer/Heart"]
+position = Vector2(60, 40)
+scale = Vector2(10, 10)
+texture = ExtResource("12_3v2ag")
+
+[node name="Heart2" type="TextureRect" parent="HealthBar/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HealthBar/HBoxContainer/Heart2"]
+position = Vector2(170, 40)
+scale = Vector2(10, 10)
+texture = ExtResource("12_3v2ag")
+
+[node name="Heart3" type="TextureRect" parent="HealthBar/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HealthBar/HBoxContainer/Heart3"]
+position = Vector2(280, 40)
+scale = Vector2(10, 10)
+texture = ExtResource("12_3v2ag")
+
+[node name="Heart4" type="TextureRect" parent="HealthBar/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HealthBar/HBoxContainer/Heart4"]
+position = Vector2(390, 40)
+scale = Vector2(10, 10)
+texture = ExtResource("12_3v2ag")
+
+[node name="Heart5" type="TextureRect" parent="HealthBar/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HealthBar/HBoxContainer/Heart5"]
+position = Vector2(500, 40)
+scale = Vector2(10, 10)
+texture = ExtResource("12_3v2ag")
+
+[connection signal="area_entered" from="Interactions/HurtBox" to="." method="_on_hurt_box_area_entered"]

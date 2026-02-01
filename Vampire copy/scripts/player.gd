@@ -6,13 +6,16 @@ var direction : Vector2 = Vector2.ZERO
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
-@onready var health: Health = $Health
+@onready var health: int = 5
+var hearts_list: Array[TextureRect]
 
 signal DirectionChanged(new_direction: Vector2)
 
 func _ready():
 	state_machine.Initialize(self)
-	pass
+	var hearts_parent = $HealthBar/HBoxContainer
+	for child in hearts_parent.get_children():
+		hearts_list.append(child)
 
 func _process(delta):
 	direction = Vector2(
@@ -73,3 +76,24 @@ func AnimDirection() -> String:
 		return "up"
 	else:
 		return "side"
+
+func TakeDamage():
+	health = health -1
+	update_heart_display()
+	if health <= 0:
+		Die()
+	print(health)
+
+func update_heart_display():
+	for i in range(hearts_list.size()):
+		hearts_list[i].visible = i < health
+
+
+func Die():
+	get_tree().change_scene_to_file("res://scenes/gameover.tscn")
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	print('enters')
+	if area.is_in_group("enemy_hitbox"):
+		area.TakeDamage()

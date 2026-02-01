@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://q76rnqnclcjv"]
+[gd_scene load_steps=10 format=3 uid="uid://q76rnqnclcjv"]
 
 [ext_resource type="Script" uid="uid://wi2y8vdhxx25" path="res://scripts/credits.gd" id="1_2fbfq"]
 [ext_resource type="StyleBox" uid="uid://de61c7bh14sgf" path="res://ui/Ressources/Themes & Stylebox/hover_button.tres" id="2_2fbfq"]
 [ext_resource type="FontVariation" uid="uid://b7m70ts8yfcru" path="res://ui/Ressources/font/ui_font.tres" id="2_8gwij"]
 [ext_resource type="StyleBox" uid="uid://cwu67ajxb4kob" path="res://ui/Ressources/Themes & Stylebox/normal_button.tres" id="3_8gwij"]
 [ext_resource type="Texture2D" uid="uid://dovp3jtvv7tac" path="res://assets/CreditsBackground.png" id="3_mah5v"]
+[ext_resource type="AudioStream" uid="uid://dv14nt17442nx" path="res://scenes/hunting.wav" id="6_mah5v"]
 
 [sub_resource type="Theme" id="Theme_kyhnv"]
 Button/colors/font_color = Color(0.80484617, 0.6991262, 0.40122786, 1)
@@ -107,5 +108,10 @@ grow_vertical = 2
 theme = SubResource("Theme_ooihk")
 text = "Return to title 
 screen"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_mah5v")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="Credits/CreditsBackground/Back" to="." method="_on_back_pressed"]
