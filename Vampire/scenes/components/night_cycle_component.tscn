@@ -4,7 +4,7 @@
 
 [sub_resource type="Gradient" id="Gradient_vjftb"]
 offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(0.78039217, 0.7607843, 0.72156864, 1, 0.42745098, 0.44705883, 0.5019608, 1, 0.78039217, 0.7607843, 0.72156864, 1)
+colors = PackedColorArray(0.78039217, 0.7607843, 0.72156864, 1, 0.6321105, 0.13382503, 0.15757498, 1, 0.78039217, 0.7607843, 0.72156864, 1)
 metadata/_snap_count = 2
 metadata/_snap_enabled = true
 

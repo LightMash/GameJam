@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://dori3vwwl360p"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://dori3vwwl360p"]
 
 [ext_resource type="Texture2D" uid="uid://b47gub2uxcp2j" path="res://assets/Basic.png" id="1_cbdxd"]
 [ext_resource type="Texture2D" uid="uid://r41t8cgpyfif" path="res://assets/GameJam 2.png" id="2_hu6sp"]
 [ext_resource type="Texture2D" uid="uid://cwwe7fm5655ai" path="res://assets/New Corner.png" id="3_hu6sp"]
 [ext_resource type="Texture2D" uid="uid://punq265h2rdt" path="res://assets/New corner final.png" id="4_xwv23"]
+[ext_resource type="Texture2D" uid="uid://bauvp8kkv07wq" path="res://assets/Ground.png" id="5_0b0mn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwv23"]
 texture = ExtResource("1_cbdxd")
@@ -177,6 +178,13 @@ texture = ExtResource("4_xwv23")
 0:0/0 = 0
 1:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4agr7"]
+texture = ExtResource("5_0b0mn")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -186,3 +194,4 @@ sources/1 = SubResource("TileSetAtlasSource_0b0mn")
 sources/0 = SubResource("TileSetAtlasSource_xwv23")
 sources/2 = SubResource("TileSetAtlasSource_pi5w0")
 sources/3 = SubResource("TileSetAtlasSource_ow828")
+sources/4 = SubResource("TileSetAtlasSource_4agr7")
